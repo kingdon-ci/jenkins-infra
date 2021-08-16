@@ -1,0 +1,119 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jenkinsci
+  namespace: flux-system
+spec:
+  interval: 5m
+  releaseName: jenkins
+  targetNamespace: jenkins
+  storageNamespace: jenkins
+  chart:
+    spec:
+      chart: jenkins
+      version: '^3.5.11'
+      sourceRef:
+        kind: HelmRepository
+        name: jenkinsci
+        namespace: flux-system
+      interval: 40m
+  values:
+    controller:
+      image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
+      tag: lts-37205268-1628873765 # {"$imagepolicy": "flux-system:jenkins:tag"}
+      installPlugins: false
+      imagePullPolicy: IfNotPresent
+      ingress:
+        enabled: true
+        apiVersion: networking.k8s.io/v1
+        hostName: jenkins.hephy.pro
+        annotations:
+         # cert-manager.io/cluster-issuer: letsencrypt-production
+          kubernetes.io/ingress.class: nginx
+        tls:
+          - secretName: jenkins.hephy.pro
+            hosts:
+              - jenkins.hephy.pro
+      JCasC:
+        defaultConfig: false
+        configScripts:
+          github-oauth: |
+            jenkins:
+              securityRealm:
+                github:
+                  githubWebUri: "https://github.com"
+                  githubApiUri: "https://api.github.com"
+                  clientID: "b4424bc483948a93d4d3"
+                  clientSecret: "${jenkins-github-secret-token}"
+                  oauthScopes: "read:org,user:email"
+              authorizationStrategy:
+                github:
+                  adminUserNames: "kingdonb"
+                  allowAnonymousJobStatusPermission: false
+                  allowAnonymousReadPermission: false
+                  allowCcTrayPermission: false
+                  allowGithubWebHookPermission: false
+                  authenticatedUserCreateJobPermission: false
+                  authenticatedUserReadPermission: false
+                  organizationNames: "kingdon-ci"
+                  useRepositoryPermissions: true
+
+          crumb-issuer: |
+            jenkins:
+              crumbIssuer:
+                standard:
+                  excludeClientIPFromCrumb: true
+
+          remoting-security: |
+            jenkins:
+              remotingSecurity:
+                enabled: true
+
+          location: |
+            unclassified:
+              location:
+                adminAddress: "Jenkins Admin <jenkins-admin@nerdland.info>"
+                url: "https://jenkins.hephy.pro/"
+
+          distributed-builds: |
+            jenkins:
+              numExecutors: 0
+              clouds:
+              - kubernetes:
+                  containerCap: 10
+                  containerCapStr: "10"
+                  jenkinsTunnel: "jenkins-agent.jenkins.svc.cluster.local:50000"
+                  jenkinsUrl: "http://jenkins.jenkins.svc.cluster.local:8080"
+                  name: "kubernetes"
+                  namespace: "jenkins"
+                  podLabels:
+                  - key: "jenkins/jenkins-jenkins-agent"
+                    value: "true"
+                  serverUrl: "https://kubernetes.default"
+                  templates:
+                  - containers:
+                    - args: "^${computer.jnlpmac} ^${computer.name}"
+                      envVars:
+                      - envVar:
+                          key: "JENKINS_URL"
+                          value: "http://jenkins.jenkins.svc.cluster.local:8080/"
+                      image: "jenkins/inbound-agent:4.6-1"
+                      name: "jnlp"
+                      resourceLimitCpu: "512m"
+                      resourceLimitMemory: "512Mi"
+                      resourceRequestCpu: "512m"
+                      resourceRequestMemory: "512Mi"
+                      workingDir: "/home/jenkins"
+                    id: "39698bb1fb92f2e49811b1514ddba69a93e9a734af456f227baa88a887431b41"
+                    label: "jenkins-jenkins-agent"
+                    name: "default"
+                    nodeUsageMode: "NORMAL"
+                    podRetention: "never"
+                    serviceAccount: "default"
+                    slaveConnectTimeout: 100
+                    slaveConnectTimeoutStr: "100"
+                    yamlMergeStrategy: "override"
+
+      additionalExistingSecrets:
+        - name: jenkins-github
+          keyName: secret-token
