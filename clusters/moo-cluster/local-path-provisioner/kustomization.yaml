@@ -3,7 +3,8 @@ kind: Kustomization
 resources:
 - https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.20/deploy/local-path-storage.yaml
 patchesStrategicMerge:
-- apiVersion: storage.k8s.io/v1
+- |-
+  apiVersion: storage.k8s.io/v1
   kind: StorageClass
   metadata:
     name: local-path
