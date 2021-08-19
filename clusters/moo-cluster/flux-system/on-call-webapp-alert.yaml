@@ -22,5 +22,5 @@ spec:
       name: '*'
     - kind: ImagePolicy
       name: '*'
-    - kind: ImageRepo
+    - kind: ImageRepository
       name: '*'
