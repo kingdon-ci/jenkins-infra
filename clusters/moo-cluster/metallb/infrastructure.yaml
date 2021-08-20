@@ -11,6 +11,11 @@ spec:
   path: ./infrastructure/metallb
   prune: true
   validation: client
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: deployment
+      name: metallb-operator-controller-manager
+      namespace: metallb-system
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
