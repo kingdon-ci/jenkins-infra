@@ -13,6 +13,6 @@ spec:
   healthChecks:
     - apiVersion: apps/v1
       kind: StatefulSet
-      name: jenkins-jenkins
+      name: jenkins
       namespace: jenkins
   timeout: 5m0s
