@@ -18,6 +18,11 @@ spec:
         namespace: flux-system
       interval: 40m
   values:
+
+    persistence:
+      enabled: true
+      existingClaim: jenkins-precreated
+
     controller:
       image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
       tag: lts-be92615c-1629484653 # {"$imagepolicy": "flux-system:jenkins:tag"}
