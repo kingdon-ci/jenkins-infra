@@ -8,7 +8,6 @@ resources:
 - gitno-hephy-pro-ingress.yaml
 - git-webhook-receiver.yaml
 - image-webhook-receiver.yaml
-- receiver-service.yaml
 - on-call-webapp-alert.yaml
 patchesStrategicMerge:
 - gotk-patches.yaml
