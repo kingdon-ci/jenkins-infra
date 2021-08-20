@@ -20,7 +20,7 @@ spec:
   values:
     controller:
       image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
-      tag: lts-37205268-1628873765 # {"$imagepolicy": "flux-system:jenkins:tag"}
+      tag: lts-be92615c-1629136848 # {"$imagepolicy": "flux-system:jenkins:tag"}
       installPlugins: false
       imagePullPolicy: IfNotPresent
       ingress:
@@ -28,7 +28,7 @@ spec:
         apiVersion: networking.k8s.io/v1
         hostName: jenkins.hephy.pro
         annotations:
-         # cert-manager.io/cluster-issuer: letsencrypt-production
+          # cert-manager.io/cluster-issuer: letsencrypt-production
           kubernetes.io/ingress.class: nginx
         tls:
           - secretName: jenkins.hephy.pro
@@ -57,24 +57,20 @@ spec:
                   authenticatedUserReadPermission: false
                   organizationNames: "kingdon-ci"
                   useRepositoryPermissions: true
-
           crumb-issuer: |
             jenkins:
               crumbIssuer:
                 standard:
                   excludeClientIPFromCrumb: true
-
           remoting-security: |
             jenkins:
               remotingSecurity:
                 enabled: true
-
           location: |
             unclassified:
               location:
                 adminAddress: "Jenkins Admin <jenkins-admin@nerdland.info>"
                 url: "https://jenkins.hephy.pro/"
-
           distributed-builds: |
             jenkins:
               numExecutors: 0
@@ -113,7 +109,6 @@ spec:
                     slaveConnectTimeout: 100
                     slaveConnectTimeoutStr: "100"
                     yamlMergeStrategy: "override"
-
       additionalExistingSecrets:
         - name: jenkins-github
           keyName: secret-token
