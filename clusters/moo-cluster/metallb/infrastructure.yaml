@@ -1,0 +1,38 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: metallb
+  namespace: flux-system
+spec:
+  interval: 10m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./infrastructure/metallb
+  prune: true
+  validation: client
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: metallb-instance
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: metallb
+  interval: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./infrastructure/metallb-instances/moo-cluster
+  prune: true
+  validation: client
+  healthChecks:
+    - apiVersion: metallb.io/v1beta1
+      kind: MetalLB
+      name: metallb
+      namespace: metallb-system
+    - apiVersion: metallb.io/v1alpha1
+      kind: AddressPool
+      name: moo-cluster
+      namespace: metallb-system
