@@ -6,5 +6,5 @@ metadata:
   namespace: flux-system
 spec:
   image: docker.io/kingdonb/jenkins
-  interval: 15m0s
+  interval: 15h0s
 
