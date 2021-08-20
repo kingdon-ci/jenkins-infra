@@ -7,9 +7,9 @@ resources:
 - namespace.yaml
 
 ## Flux Automations
-# - apps-jenkins-automation.yaml
-# - kingdonb-jenkins-registry.yaml
-# - jenkins-policy.yaml
+- apps-jenkins-automation.yaml
+- kingdonb-jenkins-registry.yaml
+- jenkins-policy.yaml
 
 ## Flux read-write GitRepo for image automation
 - flux-system-rw-gitrepo.yaml
