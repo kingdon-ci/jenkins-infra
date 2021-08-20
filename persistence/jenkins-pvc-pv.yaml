@@ -10,11 +10,6 @@ spec:
   capacity:
     storage: 8Gi
   persistentVolumeReclaimPolicy: Retain
-  claimRef:
-    apiVersion: v1
-    kind: PersistentVolumeClaim
-    name: jenkins-precreated
-    namespace: jenkins
   hostPath:
     path: /opt/local-path-provisioner/pvc-89e89767-2eb8-4e2c-97bb-341d445c1c75_jenkins_jenkins
     type: DirectoryOrCreate
