@@ -16,3 +16,4 @@ spec:
       kind: Deployment
       name: ingress-nginx-controller
       namespace: ingress-nginx
+  timeout: 5m0s
