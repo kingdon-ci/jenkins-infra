@@ -28,6 +28,14 @@ spec:
   prune: true
   validation: client
   healthChecks:
+    - apiVersion: apps/v1
+      kind: DaemonSet
+      name: speaker
+      namespace: metallb-system
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: controller
+      namespace: metallb-system
     - apiVersion: metallb.io/v1beta1
       kind: MetalLB
       name: metallb
