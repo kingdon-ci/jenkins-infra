@@ -13,7 +13,7 @@ spec:
   claimRef:
     apiVersion: v1
     kind: PersistentVolumeClaim
-    name: jenkins
+    name: jenkins-precreated
     namespace: jenkins
   hostPath:
     path: /opt/local-path-provisioner/pvc-89e89767-2eb8-4e2c-97bb-341d445c1c75_jenkins_jenkins
