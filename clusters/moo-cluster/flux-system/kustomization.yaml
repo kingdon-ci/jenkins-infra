@@ -6,7 +6,9 @@ resources:
 # - cert-manager-sync.yaml
 - slack-notification.yaml
 - gitno-hephy-pro-ingress.yaml
-- webhook-receiver.yaml
+- git-webhook-receiver.yaml
+- image-webhook-receiver.yaml
+- receiver-service.yaml
 - on-call-webapp-alert.yaml
 patchesStrategicMerge:
 - gotk-patches.yaml
