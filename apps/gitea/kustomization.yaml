@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+## Basic Gitea installation
+- helmrepo.yaml
+- helmrelease.yaml
+- namespace.yaml
+
+## Flux Automations
+#- apps-gitea-automation.yaml
+
+## Flux read-write GitRepo for image automation
+#- flux-system-rw-gitrepo.yaml
+
+## Jenkins charts gitrepo for chart debugging
+# - jenkins-charts-gitrepo.yaml
