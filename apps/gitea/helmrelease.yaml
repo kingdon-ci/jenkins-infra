@@ -17,4 +17,11 @@ spec:
         name: gitea-charts
         namespace: flux-system
       interval: 40m
-  values: {}
+  values:
+    persistence:
+      enabled: true
+      existingClaim: data-gitea-0
+    postgresql:
+      persistence:
+        enabled: true
+        existingClaim: data-gitea-postgres-0
