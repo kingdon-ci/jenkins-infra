@@ -32,11 +32,23 @@ spec:
         hostName: jenkins.hephy.pro
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-production
+          # cert-manager.io/cluster-issuer: letsencrypt-internal
           kubernetes.io/ingress.class: nginx
         tls:
           - secretName: jenkins.hephy.pro
             hosts:
               - jenkins.hephy.pro
+      # secondaryIngress:
+      #   enabled: true
+      #   apiVersion: networking.k8s.io/v1
+      #   hostName: jenkins.hephy.pro
+      #   annotations:
+      #     cert-manager.io/cluster-issuer: letsencrypt-public
+      #   tls:
+      #     - secretName: jenkins.hephy.pro
+      #       hosts:
+      #         - jenkins.hephy.pro
+
       JCasC:
         defaultConfig: false
         configScripts:
