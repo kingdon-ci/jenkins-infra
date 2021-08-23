@@ -40,6 +40,13 @@ spec:
       JCasC:
         defaultConfig: false
         configScripts:
+          github-server: |
+            unclassified:
+              gitHubPluginConfig:
+                configs:
+                - credentialsId: "869e0f2f-1f21-464e-9597-369fa246d4c1"
+                  name: "GitHub"
+                hookUrl: "https://jenkins.hephy.pro/github-webhook/"
           github-oauth: |
             jenkins:
               securityRealm:
