@@ -32,14 +32,33 @@ spec:
         hostName: jenkins.hephy.pro
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-production
+          # cert-manager.io/cluster-issuer: letsencrypt-internal
           kubernetes.io/ingress.class: nginx
         tls:
           - secretName: jenkins.hephy.pro
             hosts:
               - jenkins.hephy.pro
+      # secondaryIngress:
+      #   enabled: true
+      #   apiVersion: networking.k8s.io/v1
+      #   hostName: jenkins.hephy.pro
+      #   annotations:
+      #     cert-manager.io/cluster-issuer: letsencrypt-public
+      #   tls:
+      #     - secretName: jenkins.hephy.pro
+      #       hosts:
+      #         - jenkins.hephy.pro
+
       JCasC:
         defaultConfig: false
         configScripts:
+          github-server: |
+            unclassified:
+              gitHubPluginConfig:
+                configs:
+                - credentialsId: "869e0f2f-1f21-464e-9597-369fa246d4c1"
+                  name: "GitHub"
+                hookUrl: "https://jenkins.hephy.pro/github-webhook/"
           github-oauth: |
             jenkins:
               securityRealm:
