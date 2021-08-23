@@ -16,7 +16,7 @@ spec:
       messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
     push:
       branch: main
-  interval: 7d0h0m0s
+  interval: 168h0m0s
   sourceRef:
     kind: GitRepository
     name: flux-system-rw
