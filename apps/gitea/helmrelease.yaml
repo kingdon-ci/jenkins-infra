@@ -24,4 +24,4 @@ spec:
     postgresql:
       persistence:
         enabled: true
-        existingClaim: data-gitea-postgres-0
+        existingClaim: data-gitea-postgresql-0
