@@ -90,9 +90,11 @@ spec:
             unclassified:
               gitHubPluginConfig:
                 configs:
-                - credentialsId: "869e0f2f-1f21-464e-9597-369fa246d4c1"
+                - credentialsId: "f9faa7da-c0d1-45e7-aa59-8e52c37e70a9"
                   name: "GitHub"
                 hookUrl: "https://jenkins.hephy.pro/github-webhook/"
+              gitHubConfiguration:
+                apiRateLimitChecker: ThrottleForNormalize
           github-oauth: |
             jenkins:
               securityRealm:
