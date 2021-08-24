@@ -62,9 +62,9 @@ spec:
                       - usernamePassword:
                           description: "Docker Registry Push (kingdonb)"
                           id: "docker-registry-admin"
-                          password: "${docker-registry-admin-DOCKER_REPO_PASSWORD}"
+                          password: "${docker-registry-admin-docker-repo-password}"
                           scope: GLOBAL
-                          username: "${docker-registry-admin-DOCKER_REPO_USER}"
+                          username: "${docker-registry-admin-docker-repo-user}"
                       - usernamePassword:
                           description: "Github Token (kingdonb)"
                           id: "4a8e65ee-b8a3-4e4d-ab9a-b7783fd17243"
@@ -189,6 +189,6 @@ spec:
         - name: jenkins-github
           keyName: github-app-privkey
         - name: docker-registry-admin
-          keyName: DOCKER_REPO_USER
+          keyName: docker-repo-user
         - name: docker-registry-admin
-          keyName: DOCKER_REPO_PASSWORD
+          keyName: docker-repo-password
