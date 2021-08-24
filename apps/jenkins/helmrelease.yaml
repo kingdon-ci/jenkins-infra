@@ -56,17 +56,17 @@ spec:
           kingdon-ci-org-folder: |
             jobs:
               - script: >
-                organizationFolder("kingdon-ci") {
-                  description("configured with JCasC")
-                  displayName("Kingdon-CI")
+                  organizationFolder("kingdon-ci") {
+                    description("configured with JCasC")
+                    displayName("Kingdon-CI")
 
-                  organizations {
-                    github {
-                      repoOwner("kingdon-ci")
-                      credentialsId("f9faa7da-c0d1-45e7-aa59-8e52c37e70a9")
+                    organizations {
+                      github {
+                        repoOwner("kingdon-ci")
+                        credentialsId("f9faa7da-c0d1-45e7-aa59-8e52c37e70a9")
+                      }
                     }
                   }
-                }
           kubernetes-secret-credentials: |
             credentials:
               system:
