@@ -60,6 +60,12 @@ spec:
                 - credentials:
                   # must be 4 spaced after this point
                       - usernamePassword:
+                          description: "Docker Registry Push (kingdonb)"
+                          id: "docker-registry-admin"
+                          password: "${docker-registry-admin-DOCKER_REPO_PASSWORD}"
+                          scope: GLOBAL
+                          username: "${docker-registry-admin-DOCKER_REPO_USER}"
+                      - usernamePassword:
                           description: "Github Token (kingdonb)"
                           id: "4a8e65ee-b8a3-4e4d-ab9a-b7783fd17243"
                           password: "${jenkins-github-github-token-1}"
@@ -182,3 +188,7 @@ spec:
           keyName: github-token-2
         - name: jenkins-github
           keyName: github-app-privkey
+        - name: docker-registry-admin
+          keyName: DOCKER_REPO_USER
+        - name: docker-registry-admin
+          keyName: DOCKER_REPO_PASSWORD
