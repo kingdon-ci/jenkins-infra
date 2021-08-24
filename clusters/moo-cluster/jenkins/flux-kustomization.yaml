@@ -15,4 +15,4 @@ spec:
       kind: StatefulSet
       name: jenkins
       namespace: jenkins
-  timeout: 5m0s
+  timeout: 2m0s
