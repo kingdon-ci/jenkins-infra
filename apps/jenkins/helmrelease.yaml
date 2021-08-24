@@ -11,7 +11,7 @@ spec:
   chart:
     spec:
       chart: jenkins
-      version: '^3.5.11'
+      version: '^3.5.12'
       sourceRef:
         kind: HelmRepository
         name: jenkinsci
@@ -20,7 +20,7 @@ spec:
   values:
     persistence:
       enabled: true
-      existingClaim: jenkins-precreated
+      # existingClaim: jenkins-precreated
     controller:
       image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
       tag: lts-be92615c-1629809096 # {"$imagepolicy": "flux-system:jenkins:tag"}
