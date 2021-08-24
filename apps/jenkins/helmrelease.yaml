@@ -20,7 +20,7 @@ spec:
   values:
     persistence:
       enabled: true
-      existingClaim: jenkins-precreated
+      # existingClaim: jenkins-precreated
     controller:
       image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
       tag: lts-5e65f3a9-1629826827 # {"$imagepolicy": "flux-system:jenkins:tag"}
@@ -66,7 +66,7 @@ spec:
                   githubWebUri: "https://github.com"
                   githubApiUri: "https://api.github.com"
                   clientID: "b4424bc483948a93d4d3"
-                  clientSecret: "${jenkins-github-secret-token}"
+                  clientSecret: "${jenkins-github-oauth-secret-token}"
                   oauthScopes: "read:org,user:email"
               authorizationStrategy:
                 github:
@@ -139,4 +139,4 @@ spec:
                     yamlMergeStrategy: "override"
       additionalExistingSecrets:
         - name: jenkins-github
-          keyName: secret-token
+          keyName: oauth-secret-token
