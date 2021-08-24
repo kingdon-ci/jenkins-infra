@@ -88,6 +88,12 @@ spec:
             jenkins:
               remotingSecurity:
                 enabled: true
+          build-security-authorize-project: |
+            security:
+              queueItemAuthenticator:
+                authenticators:
+                - global:
+                    strategy: "triggeringUsersAuthorizationStrategy"
           location: |
             unclassified:
               location:
