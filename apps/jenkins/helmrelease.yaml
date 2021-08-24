@@ -65,16 +65,33 @@ spec:
                         repoOwner("kingdon-ci")
                         apiUri("https://api.github.com")
                         credentialsId("9c4638e0-4ed9-48c6-b0e1-38550d345448")
+                        traits {
+                          cleanAfterCheckoutTrait()
+                          gitHubTagDiscovery()
+                          gitHubBranchDiscovery {
+                            strategyId(1)
+                          }
+                          pruneStaleBranchTrait()
+                        }
                       }
                     }
                     configure {
                       def traits = it / sources / data / 'jenkins.branch.BranchSource' / source / traits
                       traits << 'org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait' {
-                        strategyId(1)
+                        strategyId(3)
                       }
-                      traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {
-                        strategyId(1)
+
+                      // scan all repos at least once a day
+                      def triggers = it / 'triggers'
+                      triggers << 'com.cloudbees.hudson.plugins.folder.computed.PeriodicFolderTrigger' {
+                          spec('H H * * *')
+                          interval(86400000)
                       }
+
+                      // make sure all branches get built
+                      def buildStrategies = it / 'buildStrategies'
+                      buildStrategies << 'jenkins.branch.buildstrategies.basic.BranchBuildStrategyImpl' {}
+                      buildStrategies << 'jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl' {}
                     }
                     projectFactories {
                       workflowMultiBranchProjectFactory {
