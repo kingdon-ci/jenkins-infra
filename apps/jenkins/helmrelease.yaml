@@ -5,13 +5,14 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
+  timeout: 1m
   releaseName: jenkins
   targetNamespace: jenkins
   storageNamespace: jenkins
   chart:
     spec:
       chart: jenkins
-      version: '^3.5.11'
+      version: '^3.5.12'
       sourceRef:
         kind: HelmRepository
         name: jenkinsci
@@ -20,10 +21,10 @@ spec:
   values:
     persistence:
       enabled: true
-      existingClaim: jenkins-precreated
+      # existingClaim: jenkins-precreated
     controller:
       image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
-      tag: lts-be92615c-1629723179 # {"$imagepolicy": "flux-system:jenkins:tag"}
+      tag: lts-e3257ba7-1629847190 # {"$imagepolicy": "flux-system:jenkins:tag"}
       installPlugins: false
       imagePullPolicy: IfNotPresent
       ingress:
@@ -32,14 +33,122 @@ spec:
         hostName: jenkins.hephy.pro
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-production
+          # cert-manager.io/cluster-issuer: letsencrypt-internal
           kubernetes.io/ingress.class: nginx
         tls:
           - secretName: jenkins.hephy.pro
             hosts:
               - jenkins.hephy.pro
+      # secondaryIngress:
+      #   enabled: true
+      #   apiVersion: networking.k8s.io/v1
+      #   hostName: jenkins.hephy.pro
+      #   annotations:
+      #     cert-manager.io/cluster-issuer: letsencrypt-public
+      #   tls:
+      #     - secretName: jenkins.hephy.pro
+      #       hosts:
+      #         - jenkins.hephy.pro
+
       JCasC:
         defaultConfig: false
         configScripts:
+          kingdon-ci-org-folder: |
+            jobs:
+              - script: >
+                  organizationFolder("kingdon-ci") {
+                    description("configured with JCasC")
+                    displayName("Kingdon-CI")
+
+                    organizations {
+                      github {
+                        repoOwner("kingdon-ci")
+                        apiUri("https://api.github.com")
+                        credentialsId("9c4638e0-4ed9-48c6-b0e1-38550d345448")
+                        traits {
+                          gitHubTagDiscovery()
+                          gitHubBranchDiscovery {
+                            strategyId(1)
+                          }
+                          pruneStaleBranchTrait()
+                        }
+                      }
+                    }
+                    configure {
+                      def traits = it / sources / data / 'jenkins.branch.BranchSource' / source / traits
+                      traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {
+                        strategyId(1)
+                      }
+                      traits << 'org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait' {
+                        strategyId(3)
+                      }
+
+                      // scan all repos at least once a day
+                      def triggers = it / 'triggers'
+                      triggers << 'com.cloudbees.hudson.plugins.folder.computed.PeriodicFolderTrigger' {
+                          spec('H H * * *')
+                          interval(86400000)
+                      }
+
+                      // make sure all branches get built
+                      def buildStrategies = it / 'buildStrategies'
+                      buildStrategies << 'jenkins.branch.buildstrategies.basic.BranchBuildStrategyImpl' {}
+                      buildStrategies << 'jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl' {}
+                    }
+                    projectFactories {
+                      workflowMultiBranchProjectFactory {
+                        scriptPath("Jenkinsfile")
+                      }
+                    }
+                  }
+          kubernetes-secret-credentials: |
+            credentials:
+              system:
+                domainCredentials:
+                - credentials:
+                  # must be 4 spaced after this point
+                      - usernamePassword:
+                          description: "Docker Registry Push (kingdonb)"
+                          id: "docker-registry-admin"
+                          password: "${docker-registry-admin-docker-repo-password}"
+                          scope: GLOBAL
+                          username: "${docker-registry-admin-docker-repo-user}"
+                      - usernamePassword:
+                          description: "Github Token (kingdonb)"
+                          id: "4a8e65ee-b8a3-4e4d-ab9a-b7783fd17243"
+                          password: "${jenkins-github-github-token-1}"
+                          scope: GLOBAL
+                          username: "kingdonb"
+                      - usernamePassword:
+                          description: "Github Token (kingdonb) - org-wide"
+                          id: "9c4638e0-4ed9-48c6-b0e1-38550d345448"
+                          password: "${jenkins-github-github-token-2}"
+                          scope: GLOBAL
+                          username: "kingdonb"
+                      - gitHubApp:
+                          appID: "133546"
+                          description: "Jenkins.Hephy.Pro GitHub App"
+                          id: "24d0d1a8-7b10-436c-a959-8c1d667a4653"
+                          privateKey: "${jenkins-github-github-app-privkey}"
+                      - string:
+                          description: "kingdonb GitHub Token (Plain Text)"
+                          id: "869e0f2f-1f21-464e-9597-369fa246d4c1"
+                          scope: GLOBAL
+                          secret: "${jenkins-github-github-token-1}"
+                      - string:
+                          description: "kingdonb GitHub Token (Plain Text) - Broader Access"
+                          id: "f9faa7da-c0d1-45e7-aa59-8e52c37e70a9"
+                          scope: GLOBAL
+                          secret: "${jenkins-github-github-token-2}"
+          github-server: |
+            unclassified:
+              gitHubPluginConfig:
+                configs:
+                - credentialsId: "f9faa7da-c0d1-45e7-aa59-8e52c37e70a9"
+                  name: "GitHub"
+                hookUrl: "https://jenkins.hephy.pro/github-webhook/"
+              gitHubConfiguration:
+                apiRateLimitChecker: ThrottleForNormalize
           github-oauth: |
             jenkins:
               securityRealm:
@@ -47,7 +156,7 @@ spec:
                   githubWebUri: "https://github.com"
                   githubApiUri: "https://api.github.com"
                   clientID: "b4424bc483948a93d4d3"
-                  clientSecret: "${jenkins-github-secret-token}"
+                  clientSecret: "${jenkins-github-oauth-secret-token}"
                   oauthScopes: "read:org,user:email"
               authorizationStrategy:
                 github:
@@ -69,6 +178,12 @@ spec:
             jenkins:
               remotingSecurity:
                 enabled: true
+          build-security-authorize-project: |
+            security:
+              queueItemAuthenticator:
+                authenticators:
+                - global:
+                    strategy: "triggeringUsersAuthorizationStrategy"
           location: |
             unclassified:
               location:
@@ -114,4 +229,14 @@ spec:
                     yamlMergeStrategy: "override"
       additionalExistingSecrets:
         - name: jenkins-github
-          keyName: secret-token
+          keyName: oauth-secret-token
+        - name: jenkins-github
+          keyName: github-token-1
+        - name: jenkins-github
+          keyName: github-token-2
+        - name: jenkins-github
+          keyName: github-app-privkey
+        - name: docker-registry-admin
+          keyName: docker-repo-user
+        - name: docker-registry-admin
+          keyName: docker-repo-password
