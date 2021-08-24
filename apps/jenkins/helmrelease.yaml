@@ -67,6 +67,20 @@ spec:
                         credentialsId("9c4638e0-4ed9-48c6-b0e1-38550d345448")
                       }
                     }
+                    configure {
+                      def traits = it / sources / data / 'jenkins.branch.BranchSource' / source / traits
+                      traits << 'org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait' {
+                        strategyId(1)
+                      }
+                      traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {
+                        strategyId(1)
+                      }
+                    }
+                    projectFactories {
+                      workflowMultiBranchProjectFactory {
+                        scriptPath("Jenkinsfile")
+                      }
+                    }
                   }
           kubernetes-secret-credentials: |
             credentials:
