@@ -56,36 +56,35 @@ spec:
           kubernetes-secret-credentials: |
             credentials:
               system:
-                domainCredentials:
-                  credentials:
-                  # must be 4 spaced after this point
-                      - usernamePassword:
-                          description: "Github Token (kingdonb)"
-                          id: "4a8e65ee-b8a3-4e4d-ab9a-b7783fd17243"
-                          password: "${github-token-1}"
-                          scope: GLOBAL
-                          username: "kingdonb"
-                      - usernamePassword:
-                          description: "Github Token (kingdonb) - org-wide"
-                          id: "9c4638e0-4ed9-48c6-b0e1-38550d345448"
-                          password: "${github-token-2}"
-                          scope: GLOBAL
-                          username: "kingdonb"
-                      - gitHubApp:
-                          appID: "133546"
-                          description: "Jenkins.Hephy.Pro GitHub App"
-                          id: "24d0d1a8-7b10-436c-a959-8c1d667a4653"
-                          privateKey: "${github-app-privkey}"
-                      - string:
-                          description: "kingdonb GitHub Token (Plain Text)"
-                          id: "869e0f2f-1f21-464e-9597-369fa246d4c1"
-                          scope: GLOBAL
-                          secret: "${github-token-1}"
-                      - string:
-                          description: "kingdonb GitHub Token (Plain Text) - Broader Access"
-                          id: "f9faa7da-c0d1-45e7-aa59-8e52c37e70a9"
-                          scope: GLOBAL
-                          secret: "${github-token-2}"
+                credentials:
+                # must be 4 spaced after this point
+                    - usernamePassword:
+                        description: "Github Token (kingdonb)"
+                        id: "4a8e65ee-b8a3-4e4d-ab9a-b7783fd17243"
+                        password: "${github-token-1}"
+                        scope: GLOBAL
+                        username: "kingdonb"
+                    - usernamePassword:
+                        description: "Github Token (kingdonb) - org-wide"
+                        id: "9c4638e0-4ed9-48c6-b0e1-38550d345448"
+                        password: "${github-token-2}"
+                        scope: GLOBAL
+                        username: "kingdonb"
+                    - gitHubApp:
+                        appID: "133546"
+                        description: "Jenkins.Hephy.Pro GitHub App"
+                        id: "24d0d1a8-7b10-436c-a959-8c1d667a4653"
+                        privateKey: "${github-app-privkey}"
+                    - string:
+                        description: "kingdonb GitHub Token (Plain Text)"
+                        id: "869e0f2f-1f21-464e-9597-369fa246d4c1"
+                        scope: GLOBAL
+                        secret: "${github-token-1}"
+                    - string:
+                        description: "kingdonb GitHub Token (Plain Text) - Broader Access"
+                        id: "f9faa7da-c0d1-45e7-aa59-8e52c37e70a9"
+                        scope: GLOBAL
+                        secret: "${github-token-2}"
           github-server: |
             unclassified:
               gitHubPluginConfig:
