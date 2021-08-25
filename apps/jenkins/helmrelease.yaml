@@ -24,7 +24,7 @@ spec:
       existingClaim: jenkins-precreated
     controller:
       image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
-      tag: lts-9f76b67d-1629899400 # {"$imagepolicy": "flux-system:jenkins:tag"}
+      tag: lts-9f76b67d-1629903328 # {"$imagepolicy": "flux-system:jenkins:tag"}
       installPlugins: false
       imagePullPolicy: IfNotPresent
       ingress:
