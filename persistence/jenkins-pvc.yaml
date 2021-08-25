@@ -20,4 +20,4 @@ spec:
     requests:
       storage: 8Gi
   storageClassName: local-path
-  volumeName: pvc-89e89767-2eb8-4e2c-97bb-341d445c1c75
+  # volumeName: pvc-89e89767-2eb8-4e2c-97bb-341d445c1c75
