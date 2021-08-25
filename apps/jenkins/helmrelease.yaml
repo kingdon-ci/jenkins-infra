@@ -70,7 +70,7 @@ spec:
                           gitHubBranchDiscovery {
                             strategyId(1)
                           }
-                          originPullRequestDiscovery {
+                          gitHubPullRequestDiscovery {
                             strategyId(1)
                           }
                           pruneStaleBranchTrait()
