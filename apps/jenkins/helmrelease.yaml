@@ -53,6 +53,7 @@ spec:
       JCasC:
         defaultConfig: false
         configScripts:
+
           kingdon-ci-org-folder: |
             jobs:
               - script: >
@@ -75,8 +76,8 @@ spec:
                       }
                     }
                     configure {
-                        def traits = it / navigators / 'org.jenkinsci.plugins.github__branch__source.GitHubSCMNavigator' / traits
-                        traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {
+                      def traits = it / navigators / 'org.jenkinsci.plugins.github__branch__source.GitHubSCMNavigator' / traits
+                      traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {
                         strategyId 1
                       }
 
@@ -94,6 +95,7 @@ spec:
                       }
                     }
                   }
+
           kubernetes-secret-credentials: |
             credentials:
               system:
@@ -133,6 +135,7 @@ spec:
                           id: "f9faa7da-c0d1-45e7-aa59-8e52c37e70a9"
                           scope: GLOBAL
                           secret: "${jenkins-github-github-token-2}"
+
           github-server: |
             unclassified:
               gitHubPluginConfig:
@@ -142,6 +145,7 @@ spec:
                 hookUrl: "https://jenkins.hephy.pro/github-webhook/"
               gitHubConfiguration:
                 apiRateLimitChecker: ThrottleForNormalize
+
           github-oauth: |
             jenkins:
               securityRealm:
@@ -162,26 +166,31 @@ spec:
                   authenticatedUserReadPermission: false
                   organizationNames: "kingdon-ci"
                   useRepositoryPermissions: true
+
           crumb-issuer: |
             jenkins:
               crumbIssuer:
                 standard:
                   excludeClientIPFromCrumb: true
+
           remoting-security: |
             jenkins:
               remotingSecurity:
                 enabled: true
+
           build-security-authorize-project: |
             security:
               queueItemAuthenticator:
                 authenticators:
                 - global:
                     strategy: "triggeringUsersAuthorizationStrategy"
+
           location: |
             unclassified:
               location:
                 adminAddress: "Jenkins Admin <jenkins-admin@nerdland.info>"
                 url: "https://jenkins.hephy.pro/"
+
           distributed-builds: |
             jenkins:
               numExecutors: 0
@@ -220,6 +229,7 @@ spec:
                     slaveConnectTimeout: 100
                     slaveConnectTimeoutStr: "100"
                     yamlMergeStrategy: "override"
+
       additionalExistingSecrets:
         - name: jenkins-github
           keyName: oauth-secret-token
