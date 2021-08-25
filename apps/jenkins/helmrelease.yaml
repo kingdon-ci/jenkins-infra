@@ -70,18 +70,14 @@ spec:
                           gitHubBranchDiscovery {
                             strategyId(1)
                           }
+                          originPullRequestDiscovery {
+                            strategyId(1)
+                          }
                           pruneStaleBranchTrait()
                         }
                       }
                     }
                     configure {
-                      def traits = it / sources / data / 'jenkins.branch.BranchSource' / source / traits
-                      traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {
-                        strategyId(1)
-                      }
-                      traits << 'org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait' {
-                        strategyId(3)
-                      }
 
                       // scan all repos at least once a day
                       def triggers = it / 'triggers'
@@ -90,10 +86,6 @@ spec:
                           interval(86400000)
                       }
 
-                      // make sure all branches get built
-                      def buildStrategies = it / 'buildStrategies'
-                      buildStrategies << 'jenkins.branch.buildstrategies.basic.BranchBuildStrategyImpl' {}
-                      buildStrategies << 'jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl' {}
                     }
                     projectFactories {
                       workflowMultiBranchProjectFactory {
