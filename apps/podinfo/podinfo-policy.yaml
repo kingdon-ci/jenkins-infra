@@ -7,7 +7,6 @@ metadata:
 spec:
   imageRepositoryRef:
     name: stefanprodan-podinfo
-  interval: 74h0m
   policy:
     semver:
       range: ^6.0.0
