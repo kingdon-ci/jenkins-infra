@@ -6,5 +6,5 @@ metadata:
   namespace: flux-system
 spec:
   image: docker.io/stefanprodan/podinfo
-  interval: 1h0s
+  interval: 35h0s
 
