@@ -1,0 +1,42 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-oidc-proxy
+  namespace: flux-system
+spec:
+  interval: 45m
+  releaseName: kube-oidc-proxy
+  targetNamespace: kube-oidc-proxy
+  storageNamespace: kube-oidc-proxy
+  chart:
+    spec:
+      chart: kube-oidc-proxy
+      version: '^0.3.1'
+      sourceRef:
+        kind: GitRepository
+        name: kubernetes-sso-guide
+        namespace: flux-system
+      interval: 15m
+  values:
+    oidc:
+      clientId: kube-oidc-proxy
+      issuerUrl: https://keycloak.hephy.pro/auth/realms/hephymoo/
+      usernameClaim: prefered_name
+    
+    extraArgs:
+      v: 10
+    
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-production
+        nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+        kubernetes.io/ingress.class: nginx
+      hosts:
+        - host: kube.sso.moo.hephy.pro
+          paths:
+            - /
+      tls:
+        - secretName: oidc-proxy-tls
+          hosts:
+            - kube.sso.moo.hephy.pro
