@@ -10,4 +10,4 @@ spec:
     branch: main
   secretRef:
     name: flux-system-rw
-  url: ssh://git@github.com/kingdon-ci/jenkins-infra
+  url: ssh://git@gitea-ssh.gitea.svc.cluster.local/kingdon/jenkins-infra
