@@ -5,8 +5,8 @@ metadata:
   name: my-secrets
   namespace: flux-system
 spec:
-  dependsOn:
-    - name: flux-system
+ #dependsOn:
+ #  - name: flux-system
   decryption:
     provider: sops
     secretRef:
