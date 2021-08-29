@@ -20,7 +20,7 @@ spec:
   values:
     oidc:
       clientId: kube-oidc-proxy
-      issuerUrl: https://keycloak.hephy.pro/auth/realms/hephymoo/
+      issuerUrl: https://keycloak.hephy.pro/auth/realms/hephymoo
       usernameClaim: prefered_name
     
     extraArgs:
