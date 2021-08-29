@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m
-  suspend: true
+  suspend: false
   sourceRef:
     kind: GitRepository
     name: flux-system
