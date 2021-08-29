@@ -15,7 +15,7 @@ spec:
         name: fluxcdbot
       messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
     push:
-      branch: main
+      branch: gitea
   interval: 168h0m0s
   sourceRef:
     kind: GitRepository
