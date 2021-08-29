@@ -4,7 +4,7 @@ resources:
 ## Basic Jenkins installation
 - helmrepo.yaml
 - helmrelease.yaml
-- namespace.yaml
+# - namespace.yaml
 
 ## Flux Automations
 - apps-jenkins-automation.yaml
