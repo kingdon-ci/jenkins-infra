@@ -7,8 +7,8 @@ metadata:
 spec:
   interval: 40m0s
   ref:
-    branch: main
-  url: https://github.com/kingdon-ci/jenkins-infra.git
+    branch: gitea
+  url: https://gitea.hephy.pro/kingdon/jenkins-infra.git
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
