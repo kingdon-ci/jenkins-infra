@@ -21,7 +21,7 @@ spec:
   values:
     persistence:
       enabled: true
-      # existingClaim: jenkins-precreated
+     #existingClaim: jenkins-precreated
     controller:
       image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
       tag: lts-9f76b67d-1630074604 # {"$imagepolicy": "flux-system:jenkins:tag"}

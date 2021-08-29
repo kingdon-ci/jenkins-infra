@@ -20,8 +20,8 @@ spec:
   values:
     persistence:
       enabled: true
-      existingClaim: data-gitea-0
+     #existingClaim: data-gitea-0
     postgresql:
       persistence:
         enabled: true
-        existingClaim: data-gitea-postgresql-0
+       #existingClaim: data-gitea-postgresql-0
