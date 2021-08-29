@@ -29,6 +29,7 @@ patchesStrategicMerge:
               name: keycloak-db-user
           - secretRef:
               name: keycloak-db-pass
+          env:
           - name: KEYCLOAK_USER
             value: "admin"
           - name: KEYCLOAK_PASSWORD
