@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: keycloak
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+    - hosts:
+      - keycloak.hephy.pro
+      secretName: keycloak-hephy-pro
+  rules:
+  - host: keycloak.hephy.pro
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: keycloak
+              port: 
+                number: 8080
+
