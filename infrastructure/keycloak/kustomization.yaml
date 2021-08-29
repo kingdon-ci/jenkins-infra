@@ -30,9 +30,9 @@ patchesStrategicMerge:
           - secretRef:
               name: keycloak-db-pass
           env:
-          - name: KEYCLOAK_USER
-            value: "admin"
-          - name: KEYCLOAK_PASSWORD
-            value: "admin"
+         #- name: KEYCLOAK_USER
+         #  value: "admin"
+         #- name: KEYCLOAK_PASSWORD
+         #  value: "admin"
           - name: PROXY_ADDRESS_FORWARDING
             value: "true"
