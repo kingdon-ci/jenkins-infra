@@ -20,7 +20,8 @@ spec:
   values:
     gitea:
       config:
-        DISABLE_REGISTRATION: true
+        service:
+          DISABLE_REGISTRATION: true
     persistence:
       enabled: true
       existingClaim: data-gitea-0
