@@ -18,6 +18,9 @@ spec:
         namespace: flux-system
       interval: 40m
   values:
+    gitea:
+      config:
+        DISABLE_REGISTRATION: true
     persistence:
       enabled: true
       existingClaim: data-gitea-0
