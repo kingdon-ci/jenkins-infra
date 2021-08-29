@@ -4,6 +4,7 @@ namespace: keycloak
 resources:
   - namespace.yaml
   - keycloak-ingress.yaml
+  - keycloak-db-user-configmap.yaml
   - https://raw.githubusercontent.com/keycloak/keycloak-quickstarts/latest/kubernetes-examples/keycloak.yaml
 patchesStrategicMerge:
 - |-
@@ -23,7 +24,11 @@ patchesStrategicMerge:
       spec:
         containers:
         - name: keycloak
-          env:
+          envFrom:
+          - configMapRef:
+              name: keycloak-db-user
+          - secretRef:
+              name: keycloak-db-pass
           - name: KEYCLOAK_USER
             value: "admin"
           - name: KEYCLOAK_PASSWORD
