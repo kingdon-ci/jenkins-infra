@@ -4,7 +4,7 @@ resources:
 ## Basic Gitea installation
 - helmrepo.yaml
 - helmrelease.yaml
-- namespace.yaml
+# - namespace.yaml
 
 ## Flux Automations
 #- apps-gitea-automation.yaml
