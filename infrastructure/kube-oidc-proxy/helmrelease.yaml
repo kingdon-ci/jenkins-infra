@@ -10,7 +10,7 @@ spec:
   storageNamespace: kube-oidc-proxy
   chart:
     spec:
-      chart: kube-oidc-proxy
+      chart: ./charts/kube-oidc-proxy
       version: '^0.3.1'
       sourceRef:
         kind: GitRepository
