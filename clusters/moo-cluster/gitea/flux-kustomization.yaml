@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
- #suspend: true
+  suspend: true
   path: ./apps/gitea
   prune: true
   sourceRef:
