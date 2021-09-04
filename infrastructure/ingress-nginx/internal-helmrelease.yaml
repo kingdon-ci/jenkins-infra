@@ -22,3 +22,5 @@ spec:
       ingressClassResource:
         name: internal
         default: true
+        parameters:
+          ingress-class: internal
