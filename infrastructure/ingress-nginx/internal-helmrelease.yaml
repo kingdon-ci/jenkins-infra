@@ -1,10 +1,11 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: ingress-nginx
+  name: internal-ingress
   namespace: ingress-nginx
 spec:
   interval: 45m
+  releaseName: ingress-internal
   chart:
     spec:
       chart: ingress-nginx
@@ -18,3 +19,6 @@ spec:
     controller:
       extraArgs:
         enable-ssl-passthrough: ""
+      ingressClassResource:
+        name: internal
+        default: true
