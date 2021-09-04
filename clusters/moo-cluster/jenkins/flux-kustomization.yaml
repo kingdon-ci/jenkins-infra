@@ -11,9 +11,11 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
+  dependsOn:
+    - name: persistence
   healthChecks:
     - apiVersion: apps/v1
       kind: StatefulSet
       name: jenkins
       namespace: jenkins
-  timeout: 2m0s
+  timeout: 6m0s
