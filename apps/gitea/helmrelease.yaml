@@ -34,9 +34,10 @@ spec:
         existingClaim: data-gitea-postgresql-0
     ingress:
       enabled: true
+      ingressClassName: internal
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-production
-        kubernetes.io/ingress.class: internal
+        #kubernetes.io/ingress.class: internal
       hosts:
         - host: gitea.hephy.pro
           paths:
