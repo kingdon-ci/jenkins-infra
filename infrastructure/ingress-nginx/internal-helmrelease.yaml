@@ -23,3 +23,4 @@ spec:
       ingressClassResource:
         name: internal
         default: true
+        controllerValue: "k8s.io/ingress-nginx-internal"
