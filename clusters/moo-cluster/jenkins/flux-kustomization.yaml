@@ -13,7 +13,6 @@ spec:
     name: flux-system
   dependsOn:
     - name: ingress-nginx
-      namespace: ingress-nginx
     - name: persistence
   healthChecks:
     - apiVersion: apps/v1
