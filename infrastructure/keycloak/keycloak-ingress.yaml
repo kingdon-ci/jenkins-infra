@@ -6,6 +6,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-production
     kubernetes.io/ingress.class: internal
 spec:
+  ingressClassName: internal
   tls:
     - hosts:
       - keycloak.hephy.pro

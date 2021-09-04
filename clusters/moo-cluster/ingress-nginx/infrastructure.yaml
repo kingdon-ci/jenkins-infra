@@ -14,6 +14,10 @@ spec:
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
-      name: ingress-nginx-controller
+      name: ingress-internal-ingress-nginx-controller
       namespace: ingress-nginx
-  timeout: 5m0s
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: ingress-public-ingress-nginx-controller
+      namespace: ingress-nginx
+  timeout: 8m0s

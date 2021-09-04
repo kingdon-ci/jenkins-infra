@@ -24,3 +24,5 @@ spec:
       ingressClassResource:
         name: public
         default: false
+        parameters:
+          ingress-class: public
