@@ -4,7 +4,10 @@ metadata:
   name: git-webhook
   namespace: flux-system
 spec:
-  type: generic
+  type: github
+  events:
+    - "ping"
+    - "push"
   secretRef:
     name: webhook-token
   resources:

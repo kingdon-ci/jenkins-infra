@@ -23,9 +23,20 @@ spec:
       enabled: true
       #existingClaim: jenkins-precreated
     controller:
-      image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
-      tag: lts-5e87b83f-1630687511 # {"$imagepolicy": "flux-system:jenkins:tag"}
-      installPlugins: false
+      #image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
+      #tag: lts-5e87b83f-1630687511 # {"$imagepolicy": "flux-system:jenkins:tag"}
+      #installPlugins: false
+      installPlugins:
+        - kubernetes
+        - workflow-aggregator
+        - git
+        - configuration-as-code
+        - authorize-project
+        - github-oauth
+        - command-launcher
+        - jdk-tool
+        - job-dsl
+        - strict-crumb-issuer
       imagePullPolicy: IfNotPresent
       ingress:
         enabled: true
