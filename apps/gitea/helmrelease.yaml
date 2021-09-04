@@ -4,6 +4,7 @@ metadata:
   name: gitea-srv
   namespace: flux-system
 spec:
+  suspend: true
   interval: 5m
   releaseName: gitea
   targetNamespace: gitea

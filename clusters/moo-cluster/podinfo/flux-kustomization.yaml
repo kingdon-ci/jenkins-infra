@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  suspend: false
+  suspend: true
   path: ./apps/podinfo
   prune: true
   sourceRef:
