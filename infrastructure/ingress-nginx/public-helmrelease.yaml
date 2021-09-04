@@ -21,8 +21,7 @@ spec:
     controller:
       extraArgs:
         enable-ssl-passthrough: ""
+        ingress-class: public
       ingressClassResource:
         name: public
         default: false
-        parameters:
-          ingress-class: public
