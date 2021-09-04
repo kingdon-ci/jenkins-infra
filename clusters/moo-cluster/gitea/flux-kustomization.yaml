@@ -1,19 +1,19 @@
-# apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-# kind: Kustomization
-# metadata:
-#   name: gitea
-#   namespace: flux-system
-# spec:
-#   interval: 10m0s
-#  #suspend: false
-#   path: ./apps/gitea
-#   prune: true
-#   sourceRef:
-#     kind: GitRepository
-#     name: flux-system
-#   healthChecks:
-#     - apiVersion: apps/v1
-#       kind: StatefulSet
-#       name: gitea
-#       namespace: gitea
-#   timeout: 2m0s
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: gitea
+  namespace: flux-system
+spec:
+  interval: 10m0s
+ #suspend: false
+  path: ./apps/gitea
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: StatefulSet
+      name: gitea
+      namespace: gitea
+  timeout: 2m0s
