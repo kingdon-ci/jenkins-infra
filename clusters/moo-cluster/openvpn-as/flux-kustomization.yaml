@@ -17,6 +17,6 @@ spec:
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
-      name: openvpn-as
+      name: openvpn-openvpn-as
       namespace: openvpn
-  timeout: 3m0s
+  timeout: 5m0s
