@@ -9,6 +9,9 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./infrastructure/ingress-nginx
+  dependsOn:
+    - name: metallb
+    - name: metallb-instance
   prune: true
   validation: client
   healthChecks:
