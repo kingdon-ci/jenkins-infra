@@ -9,6 +9,10 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./infrastructure/kube-oidc-proxy
+  dependsOn:
+    - name: keycloak
+    - name: ingress-nginx
+    - name: my-secrets
   prune: true
   validation: client
   healthChecks:
