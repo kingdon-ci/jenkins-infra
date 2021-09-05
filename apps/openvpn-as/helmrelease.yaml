@@ -9,6 +9,8 @@ spec:
   releaseName: openvpn
   targetNamespace: openvpn
   storageNamespace: openvpn
+  dependsOn:
+    - name: public-ingress
   chart:
     spec:
       chart: openvpn-as
@@ -19,3 +21,33 @@ spec:
         namespace: flux-system
       interval: 40m
   values:
+    openvpn:
+      admin:
+        user: superuser
+        password: changeme-rightnow
+      users:
+      - user: kingdon
+        password: kingdonpw-changeme
+    service:
+      type: LoadBalancer
+    ingress:
+      gui:
+        enabled: true
+        hostName: vpn.hephy.pro
+        ingressClassName: public
+        annotations: {}
+          # kubernetes.io/ingress.class: nginx
+          # kubernetes.io/tls-acme: "true"
+        tls:
+          enabled: true
+          secretName: vpn-hephy-pro-tls
+      admin:
+        enabled: true
+        hostName: vpn-admin.hephy.pro
+        ingressClassName: public
+        annotations: {}
+          # kubernetes.io/ingress.class: nginx
+          # kubernetes.io/tls-acme: "true"
+        tls:
+          enabled: true
+          secretName: vpn-admin-hephy-pro-tls
