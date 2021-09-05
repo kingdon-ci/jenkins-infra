@@ -11,6 +11,7 @@ spec:
   storageNamespace: openvpn
   dependsOn:
     - name: public-ingress
+      namespace: ingress-nginx
   chart:
     spec:
       chart: openvpn-as
