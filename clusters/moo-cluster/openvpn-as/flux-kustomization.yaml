@@ -4,7 +4,7 @@ metadata:
   name: openvpn
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 20m0s
  #suspend: true
   path: ./apps/openvpn-as
   prune: true
@@ -14,9 +14,10 @@ spec:
   dependsOn:
     - name: ingress-nginx
     - name: persistence
+    - name: jenkins
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
-      name: openvpn-as
+      name: openvpn-openvpn-as
       namespace: openvpn
-  timeout: 3m0s
+  timeout: 12m0s

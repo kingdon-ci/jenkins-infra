@@ -9,6 +9,9 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./infrastructure/keycloak
+  dependsOn:
+    - name: my-secrets
+    - name: ingress-nginx
   prune: true
   validation: client
   healthChecks:
