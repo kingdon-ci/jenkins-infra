@@ -36,6 +36,7 @@ metadata:
 spec:
   dependsOn:
     - name: cert-manager
+    - name: ingress-nginx
   interval: 11h3m40s
   path: ./infrastructure/cert-manager-issuers
   prune: true
