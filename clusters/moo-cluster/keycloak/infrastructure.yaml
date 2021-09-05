@@ -10,7 +10,7 @@ spec:
     name: flux-system
   path: ./infrastructure/keycloak
   dependsOn:
-    - my-secrets
+    - name: my-secrets
   prune: true
   validation: client
   healthChecks:
