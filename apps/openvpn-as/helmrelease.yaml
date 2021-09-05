@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: openvpn-as
+  namespace: flux-system
+spec:
+  interval: 5m
+  timeout: 2m
+  releaseName: openvpn
+  targetNamespace: openvpn
+  storageNamespace: openvpn
+  chart:
+    spec:
+      chart: openvpn-as
+      version: '^0.1.8'
+      sourceRef:
+        kind: HelmRepository
+        name: stenic
+        namespace: flux-system
+      interval: 40m
+  values:
