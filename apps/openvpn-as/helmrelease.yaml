@@ -41,6 +41,19 @@ spec:
     valuesKey: password
     targetPath: openvpn.users[0].password
   values:
+    openvpn:
+      config:
+        vpn.client.routing.reroute_gw: "true"
+        vpn.client.routing.reroute_dns: "true"
+        host.name: vpn.hephy.pro
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
+
     service:
       type: LoadBalancer
     persistence:
