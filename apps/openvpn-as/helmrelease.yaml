@@ -26,11 +26,20 @@ spec:
   valuesFrom:
   - kind: Secret
     name: vpn-admin-superuser
-    valuesKey: values.yaml
+    valuesKey: user
+    targetPath: openvpn.admin.user
+  - kind: Secret
+    name: vpn-admin-superuser
+    valuesKey: password
+    targetPath: openvpn.admin.password
   - kind: Secret
     name: vpn-user-kingdon
-    valuesKey: users
-    targetPath: openvpn.users
+    valuesKey: user
+    targetPath: openvpn.users[0].user
+  - kind: Secret
+    name: vpn-user-kingdon
+    valuesKey: user
+    targetPath: openvpn.users[0].password
   values:
     service:
       type: LoadBalancer
