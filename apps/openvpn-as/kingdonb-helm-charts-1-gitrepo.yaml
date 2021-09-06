@@ -7,5 +7,5 @@ metadata:
 spec:
   interval: 10m0s
   ref:
-    branch: openvpn-persistence-existing
+    branch: helm-single-lb-only
   url: https://github.com/kingdonb/helm-charts-1
