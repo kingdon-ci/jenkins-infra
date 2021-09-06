@@ -38,7 +38,7 @@ spec:
     targetPath: openvpn.users[0].user
   - kind: Secret
     name: vpn-user-kingdon
-    valuesKey: user
+    valuesKey: password
     targetPath: openvpn.users[0].password
   values:
     service:
