@@ -55,7 +55,8 @@ spec:
         memory: 256Mi
 
     service:
-      type: LoadBalancer
+      lb:
+        type: LoadBalancer
     persistence:
       existingClaim: openvpn-openvpn-as-state
     ingress:
