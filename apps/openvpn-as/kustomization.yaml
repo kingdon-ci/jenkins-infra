@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 - helmrepo.yaml
 - helmrelease.yaml
+- kingdonb-helm-charts-1-gitrepo.yaml
