@@ -38,7 +38,8 @@ spec:
         enabled: true
         hostName: vpn.hephy.pro
         ingressClassName: internal
-        annotations: {}
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-production
           # kubernetes.io/ingress.class: nginx
           # kubernetes.io/tls-acme: "true"
         tls:
@@ -48,7 +49,8 @@ spec:
         enabled: true
         hostName: vpn-admin.hephy.pro
         ingressClassName: internal
-        annotations: {}
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-production
           # kubernetes.io/ingress.class: nginx
           # kubernetes.io/tls-acme: "true"
         tls:
