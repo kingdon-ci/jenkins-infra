@@ -23,14 +23,15 @@ spec:
         name: kingdonb-helm-charts-1
         namespace: flux-system
       interval: 40m
+  valuesFrom:
+  - kind: Secret
+    name: vpn-admin-superuser
+    valuesKey: values.yaml
+  - kind: Secret
+    name: vpn-user-kingdon
+    valuesKey: users
+    targetPath: openvpn.users
   values:
-    openvpn:
-      admin:
-        user: superuser
-        password: changeme-rightnow
-      users:
-      - user: kingdon
-        password: kingdonpw-changeme
     service:
       type: LoadBalancer
     ingress:
