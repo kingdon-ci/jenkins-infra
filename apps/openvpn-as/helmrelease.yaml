@@ -47,7 +47,7 @@ spec:
       gui:
         enabled: true
         hostName: vpn.hephy.pro
-        ingressClassName: internal
+        ingressClassName: public
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-production
           # kubernetes.io/ingress.class: nginx
