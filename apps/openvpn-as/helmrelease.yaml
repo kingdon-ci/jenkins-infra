@@ -43,6 +43,8 @@ spec:
   values:
     service:
       type: LoadBalancer
+    persistence:
+      existingClaim: openvpn-openvpn-as-state
     ingress:
       gui:
         enabled: true

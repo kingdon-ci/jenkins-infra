@@ -7,5 +7,5 @@ metadata:
 spec:
   interval: 10m0s
   ref:
-    branch: ingress-v1
+    branch: openvpn-persistence-existing
   url: https://github.com/kingdonb/helm-charts-1
