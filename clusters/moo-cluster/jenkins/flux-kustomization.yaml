@@ -4,7 +4,7 @@ metadata:
   name: jenkins
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 47h59m28s
  #suspend: true
   path: ./apps/jenkins
   prune: true

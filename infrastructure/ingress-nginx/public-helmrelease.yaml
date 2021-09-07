@@ -4,7 +4,7 @@ metadata:
   name: public-ingress
   namespace: ingress-nginx
 spec:
-  interval: 45m
+  interval: 36h45m10s
   releaseName: ingress-public
   dependsOn:
     - name: internal-ingress

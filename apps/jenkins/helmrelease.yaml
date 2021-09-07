@@ -4,7 +4,7 @@ metadata:
   name: jenkinsci
   namespace: flux-system
 spec:
-  interval: 5m
+  interval: 36h45m10s
   timeout: 3m
   releaseName: jenkins
   targetNamespace: jenkins

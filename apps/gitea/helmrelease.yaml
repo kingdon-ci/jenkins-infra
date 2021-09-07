@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   suspend: true
-  interval: 5m
+  interval: 36h45m10s
   releaseName: gitea
   targetNamespace: gitea
   storageNamespace: gitea

@@ -4,7 +4,7 @@ metadata:
   name: gitea
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 47h59m28s
  #suspend: false
   path: ./apps/gitea
   prune: true

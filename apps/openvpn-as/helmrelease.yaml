@@ -4,7 +4,7 @@ metadata:
   name: openvpn-as
   namespace: flux-system
 spec:
-  interval: 15m
+  interval: 36h45m10s
   timeout: 8m
   releaseName: openvpn
   targetNamespace: openvpn
