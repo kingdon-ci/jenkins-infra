@@ -1,0 +1,4 @@
+# Flux ignore
+# (ArgoCD is installing Flux)
+
+clusters/moo-cluster/flux-system/
