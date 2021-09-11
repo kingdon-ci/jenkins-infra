@@ -4,8 +4,10 @@ metadata:
   name: argocd-server-ingress
   namespace: argocd
   annotations:
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: internal
   rules:
@@ -19,3 +21,7 @@ spec:
             name: argocd-server
             port:
               name: https
+  tls:
+  - hosts:
+    - argocd.hephy.pro
+    secretName: argocd-secret # do not change, this is provided by Argo CD
