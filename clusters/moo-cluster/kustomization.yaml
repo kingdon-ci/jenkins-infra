@@ -10,9 +10,8 @@ resources:
 - keycloak
 - kube-oidc-proxy
 - local-path-provisioner
-- metallb/infrastructure.yaml
+- metallb
 - metrics-server
 - my-secrets
-- openvpn-as/flux-kustomization.yaml
-- openvpn-as/namespace.yaml
-- podinfo/flux-kustomization.yaml
+- openvpn-as
+- podinfo
