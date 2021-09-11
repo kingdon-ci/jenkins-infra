@@ -16,7 +16,7 @@ resources:
 - local-path-provisioner
 - metallb/infrastructure.yaml
 - metrics-server
-- my-secrets/infrastructure.yaml
+- my-secrets
 - openvpn-as/flux-kustomization.yaml
 - openvpn-as/namespace.yaml
 - podinfo/flux-kustomization.yaml
