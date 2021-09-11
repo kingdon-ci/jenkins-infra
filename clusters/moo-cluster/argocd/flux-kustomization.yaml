@@ -20,4 +20,4 @@ spec:
       kind: Deployment
       name: argocd-server
       namespace: argocd
-  timeout: 6m0s
+  timeout: 2m0s
