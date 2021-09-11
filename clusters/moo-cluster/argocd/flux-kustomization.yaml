@@ -11,10 +11,8 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  # dependsOn:
-  #   - name: ingress-nginx
-  #   - name: persistence
-  #   - name: my-secrets
+  dependsOn:
+    - name: my-secrets
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
