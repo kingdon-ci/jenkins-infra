@@ -24,9 +24,9 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: flux-system
     - name: metallb
   interval: 11h3m40s
+  timeout: 9m0s
   sourceRef:
     kind: GitRepository
     name: flux-system

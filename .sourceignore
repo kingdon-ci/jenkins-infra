@@ -1,0 +1,9 @@
+# Flux ignore
+# (ArgoCD is installing Flux)
+
+clusters/moo-cluster/flux-system/
+.git/
+.gitignore
+.gitmodules
+.gitattributes
+.sops.yaml

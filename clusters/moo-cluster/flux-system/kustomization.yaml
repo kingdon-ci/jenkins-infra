@@ -10,4 +10,4 @@ resources:
 - image-webhook-receiver.yaml
 - on-call-webapp-alert.yaml
 patchesStrategicMerge:
-- gotk-patches.yaml
+# - gotk-patches.yaml
