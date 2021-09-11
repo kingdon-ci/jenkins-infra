@@ -22,6 +22,7 @@ spec:
       extraArgs:
         enable-ssl-passthrough: ""
         ingress-class: public
+      electionID: public-ingress-leader
       ingressClassResource:
         name: public
         default: false
