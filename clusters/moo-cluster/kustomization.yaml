@@ -5,13 +5,10 @@ resources:
 - cert-manager
 - flux-system
 - gitea
-- ingress-nginx/infrastructure.yaml
-- jenkins/flux-kustomization.yaml
-- jenkins/namespace.yaml
-- keycloak/infrastructure.yaml
-- keycloak/namespace.yaml
-- kube-oidc-proxy/infrastructure.yaml
-- kube-oidc-proxy/namespace.yaml
+- ingress-nginx
+- jenkins
+- keycloak
+- kube-oidc-proxy
 - local-path-provisioner
 - metallb/infrastructure.yaml
 - metrics-server
