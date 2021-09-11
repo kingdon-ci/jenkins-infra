@@ -3,13 +3,11 @@ kind: Application
 metadata:
   name: flux-cluster
 spec:
-  destination:
-    name: ''
-    namespace: flux-system
-    server: 'https://kubernetes.default.svc'
-  source:
-    path: clusters/moo-cluster/flux-system
-    repoURL: 'https://github.com/kingdon-ci/jenkins-infra'
-    targetRevision: main
   project: default
-
+  source:
+    repoURL: 'https://github.com/kingdon-ci/jenkins-infra'
+    path: clusters/moo-cluster
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: flux-system
