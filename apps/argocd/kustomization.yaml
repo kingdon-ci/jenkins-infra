@@ -4,9 +4,10 @@ namespace: argocd
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   - ingress.yaml
-  - flux-system-app.yaml
   - argocd-app.yaml
   - cert-manager-app.yaml
+  - cert-manager-issuers.yaml
+  - flux-system-app.yaml
   - gitea-app.yaml
   - ingress-app.yaml
   - jenkins-app.yaml
@@ -14,6 +15,7 @@ resources:
   - kube-oidc-proxy-app.yaml
   - local-path-app.yaml
   - metallb-app.yaml
+  - metallb-instances.yaml
   - metrics-server-app.yaml
   - openvpn-as-app.yaml
   - podinfo-app.yaml
