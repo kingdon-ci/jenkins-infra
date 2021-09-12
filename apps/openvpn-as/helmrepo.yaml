@@ -4,5 +4,5 @@ metadata:
   name: stenic
   namespace: flux-system
 spec:
-  interval: 2m
+  interval: 111h2m0s
   url: https://stenic.github.io/helm-charts

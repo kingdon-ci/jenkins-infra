@@ -5,7 +5,7 @@ metadata:
   name: kingdonb-helm-charts-1
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 19h38m0s
   ref:
     branch: helm-single-lb-only
   url: https://github.com/kingdonb/helm-charts-1
