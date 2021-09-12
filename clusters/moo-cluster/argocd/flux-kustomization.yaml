@@ -5,9 +5,9 @@ metadata:
   namespace: flux-system
 spec:
   interval: 47h59m28s
- #suspend: true
+  suspend: true
   path: ./apps/argocd
-  prune: false
+  prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
