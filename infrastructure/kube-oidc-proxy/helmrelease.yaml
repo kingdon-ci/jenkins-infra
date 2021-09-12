@@ -33,6 +33,10 @@ spec:
         cert-manager.io/cluster-issuer: letsencrypt-production
         nginx.ingress.kubernetes.io/backend-protocol: HTTPS
         #kubernetes.io/ingress.class: internal
+        nginx.ingress.kubernetes.io/proxy-connect-timeout: "180"
+        nginx.ingress.kubernetes.io/proxy-read-timeout: "180"
+        nginx.ingress.kubernetes.io/proxy-send-timeout: "180"
+
       hosts:
         - host: kube.sso.moo.hephy.pro
           paths:
