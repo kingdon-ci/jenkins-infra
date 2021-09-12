@@ -9,7 +9,7 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./infrastructure/metallb
-  prune: true
+  prune: false
   validation: client
   healthChecks:
     - apiVersion: apps/v1
@@ -31,7 +31,7 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./infrastructure/metallb-instances/moo-cluster
-  prune: true
+  prune: false
   validation: client
   healthChecks:
     - apiVersion: apps/v1

@@ -7,7 +7,7 @@ spec:
   interval: 47h59m28s
  #suspend: true
   path: ./apps/openvpn-as
-  prune: true
+  prune: false
   sourceRef:
     kind: GitRepository
     name: flux-system

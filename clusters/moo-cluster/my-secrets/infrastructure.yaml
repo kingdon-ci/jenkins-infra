@@ -14,7 +14,7 @@ spec:
       name: sops-gpg
   interval: 30m0s
   path: ./secrets/moo-cluster
-  prune: true
+  prune: false
   sourceRef:
     kind: GitRepository
     name: flux-system
