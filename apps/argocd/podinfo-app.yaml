@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: podinfo
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/kingdon-ci/jenkins-infra'
+    path: apps/podinfo
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default

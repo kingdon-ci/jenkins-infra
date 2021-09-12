@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/kingdon-ci/jenkins-infra'
+    path: infrastructure/metallb
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: metallb-system
