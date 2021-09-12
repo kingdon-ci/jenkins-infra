@@ -5,3 +5,22 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   - ingress.yaml
   - flux-system-app.yaml
+  - argocd-app.yaml
+  - cert-manager-app.yaml
+  - gitea-app.yaml
+  - ingress-app.yaml
+  - jenkins-app.yaml
+  - keycloak-app.yaml
+  - kube-oidc-proxy-app.yaml
+  - local-path-app.yaml
+  - metallb-app.yaml
+  - metrics-server-app.yaml
+  - openvpn-as-app.yaml
+  - podinfo-app.yaml
+patchesStrategicMerge:
+- |-
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: argocd-secret
+  $patch: delete

@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: flux-cluster
+  name: jenkins-app
 spec:
   project: default
   source:
     repoURL: 'https://github.com/kingdon-ci/jenkins-infra'
-    path: clusters/moo-cluster
+    path: apps/jenkins
     targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: flux-system
+    namespace: jenkins

@@ -16,7 +16,7 @@ spec:
         kind: GitRepository
         name: kubernetes-sso-guide
         namespace: flux-system
-      interval: 15m
+      interval: 15m0s
   values:
     oidc:
       clientId: kube-oidc-proxy

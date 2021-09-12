@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: flux-cluster
+  name: ingress-app
 spec:
   project: default
   source:
     repoURL: 'https://github.com/kingdon-ci/jenkins-infra'
-    path: clusters/moo-cluster
+    path: infrastructure/ingress-nginx
     targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: flux-system
+    namespace: ingress-nginx
