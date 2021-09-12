@@ -14,7 +14,6 @@ spec:
   dependsOn:
     - name: ingress-nginx
     - name: persistence
-    - name: jenkins
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
