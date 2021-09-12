@@ -9,7 +9,7 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./infrastructure/local-path-provisioner
-  prune: true
+  prune: false
   validation: client
   healthChecks:
     - apiVersion: apps/v1

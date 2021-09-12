@@ -9,7 +9,7 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./infrastructure/metrics-server
-  prune: true
+  prune: false
   validation: client
   healthChecks:
     - apiVersion: apps/v1

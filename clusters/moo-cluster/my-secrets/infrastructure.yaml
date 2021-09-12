@@ -6,8 +6,6 @@ metadata:
   namespace: flux-system
 spec:
   suspend: true
- #dependsOn:
- #  - name: flux-system
   decryption:
     provider: sops
     secretRef:

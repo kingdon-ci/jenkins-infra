@@ -12,7 +12,7 @@ spec:
   dependsOn:
     - name: metallb
     - name: metallb-instance
-  prune: true
+  prune: false
   validation: client
   healthChecks:
     - apiVersion: apps/v1

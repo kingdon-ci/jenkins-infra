@@ -12,7 +12,7 @@ spec:
   dependsOn:
     - name: ingress-nginx
     - name: my-secrets
-  prune: true
+  prune: false
   validation: client
   healthChecks:
     - apiVersion: apps/v1

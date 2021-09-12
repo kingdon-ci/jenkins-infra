@@ -7,7 +7,7 @@ spec:
   interval: 47h59m28s
  #suspend: false
   path: ./apps/gitea
-  prune: true
+  prune: false
   sourceRef:
     kind: GitRepository
     name: flux-system

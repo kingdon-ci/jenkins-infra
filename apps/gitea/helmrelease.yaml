@@ -17,7 +17,7 @@ spec:
         kind: HelmRepository
         name: gitea-charts
         namespace: flux-system
-      interval: 40m
+      interval: 40m0s
   values:
     gitea:
       admin:
