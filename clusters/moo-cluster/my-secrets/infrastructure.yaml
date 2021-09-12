@@ -6,15 +6,13 @@ metadata:
   namespace: flux-system
 spec:
   suspend: true
- #dependsOn:
- #  - name: flux-system
   decryption:
     provider: sops
     secretRef:
       name: sops-gpg
   interval: 30m0s
   path: ./secrets/moo-cluster
-  prune: false
+  prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
