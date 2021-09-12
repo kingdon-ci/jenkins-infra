@@ -5,16 +5,15 @@ metadata:
   namespace: flux-system
 spec:
   interval: 47h59m28s
- #suspend: false
+  suspend: false
   path: ./apps/gitea
-  prune: false
+  prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
-  ## in lieu of suspending the whole ks, let's just suspend the health checks
-  # healthChecks:
-  #   - apiVersion: apps/v1
-  #     kind: StatefulSet
-  #     name: gitea
-  #     namespace: gitea
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: StatefulSet
+      name: gitea
+      namespace: gitea
   timeout: 2m0s
