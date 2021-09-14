@@ -9,7 +9,7 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: gitops
+    name: linkerd-demos
   validation: client
   healthChecks:
     - apiVersion: apps/v1
@@ -46,7 +46,7 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: gitops
+    name: linkerd-demos
   validation: client
   healthChecks:
     - apiVersion: apps/v1
@@ -87,7 +87,7 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: gitops
+    name: linkerd-demos
   validation: client
   healthChecks:
 ---
@@ -104,7 +104,7 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: gitops
+    name: linkerd-demos
   validation: client
   healthChecks:
     - apiVersion: apps/v1
@@ -133,7 +133,7 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: gitops
+    name: linkerd-demos
   validation: client
   healthChecks:
     - apiVersion: apps/v1
