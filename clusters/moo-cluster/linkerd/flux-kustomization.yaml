@@ -1,7 +1,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
-  name: linkerd
+  name: linkerd-infra
   namespace: flux-system
 spec:
   interval: 47h59m28s
