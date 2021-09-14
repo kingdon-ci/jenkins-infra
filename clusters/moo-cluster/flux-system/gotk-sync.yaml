@@ -5,10 +5,12 @@ metadata:
   name: flux-system
   namespace: flux-system
 spec:
-  interval: 40m0s
+  interval: 1m0s
   ref:
     branch: main
-  url: https://github.com/kingdon-ci/jenkins-infra.git
+  secretRef:
+    name: flux-system
+  url: ssh://git@github.com/kingdon-ci/jenkins-infra
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
@@ -16,9 +18,9 @@ metadata:
   name: flux-system
   namespace: flux-system
 spec:
-  interval: 30m0s
+  interval: 10m0s
   path: ./clusters/moo-cluster
-  prune: false
+  prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
