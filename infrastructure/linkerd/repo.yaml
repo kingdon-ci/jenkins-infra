@@ -5,7 +5,7 @@ metadata:
   name: gitops
   namespace: flux-system
 spec:
-  interval: 1m0s
+  interval: 60m0s
   ref:
     branch: main
   url: https://github.com/kingdonb/linkerd-demos

@@ -4,7 +4,7 @@ metadata:
   name: linkerd
   namespace: flux-system
 spec:
-  interval: 30s
+  interval: 30m29s
   path: ./gitops/flux/runtime/source/linkerd
   prune: true
   sourceRef:
@@ -41,7 +41,7 @@ metadata:
 spec:
   dependsOn:
   - name: linkerd
-  interval: 30s
+  interval: 31m29s
   path: ./gitops/flux/runtime/source/linkerd-viz
   prune: true
   sourceRef:
@@ -82,7 +82,7 @@ metadata:
 spec:
   dependsOn:
   - name: linkerd-viz
-  interval: 30s
+  interval: 32m29s
   path: ./gitops/flux/runtime/source/ambassador-crds
   prune: true
   sourceRef:
@@ -99,7 +99,7 @@ metadata:
 spec:
   dependsOn:
   - name: ambassador-crds
-  interval: 30s
+  interval: 33m29s
   path: ./gitops/flux/runtime/source/ambassador
   prune: true
   sourceRef:
@@ -128,7 +128,7 @@ metadata:
 spec:
   dependsOn:
   - name: linkerd-viz
-  interval: 30s
+  interval: 30m59s
   path: ./gitops/flux/runtime/source/flagger
   prune: true
   sourceRef:
