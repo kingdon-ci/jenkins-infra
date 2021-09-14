@@ -4,12 +4,13 @@ resources:
 - cert-manager
 - flux-system
 - ingress-nginx
-#- jenkins
+- jenkins
 - keycloak
 - kube-oidc-proxy
+- linkerd
 - local-path-provisioner
 - metallb
 - metrics-server
 - my-secrets
-#- openvpn-as
-- podinfo
+- openvpn-as
+#- podinfo
