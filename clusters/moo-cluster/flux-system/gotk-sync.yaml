@@ -9,17 +9,17 @@ spec:
   ref:
     branch: main
   url: https://github.com/kingdon-ci/jenkins-infra.git
-# ---
-# apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-# kind: Kustomization
-# metadata:
-#   name: flux-system
-#   namespace: flux-system
-# spec:
-#   interval: 30m0s
-#   path: ./clusters/moo-cluster
-#   prune: false
-#   sourceRef:
-#     kind: GitRepository
-#     name: flux-system
-#   validation: client
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: flux-system
+  namespace: flux-system
+spec:
+  interval: 30m0s
+  path: ./clusters/moo-cluster
+  prune: false
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: client
