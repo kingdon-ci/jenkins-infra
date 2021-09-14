@@ -1,5 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - https://github.com/JasonMorgan/linkerd-demos/raw/main/gitops/flux/runtime/manifests/cluster.yaml
-  - https://github.com/JasonMorgan/linkerd-demos/raw/main/gitops/flux/runtime/manifests/repo.yaml
+#  - https://github.com/JasonMorgan/linkerd-demos/raw/main/gitops/flux/runtime/manifests/cluster.yaml
+#  - https://github.com/JasonMorgan/linkerd-demos/raw/main/gitops/flux/runtime/manifests/repo.yaml
+# forked from above ^ @ https://github.com/kingdonb/linkerd-demos
+  - cluster.yaml
+  - repo.yaml
