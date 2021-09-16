@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: hephy
+  namespace: deis
+spec:
+  chart:
+    spec:
+      chart: workflow
+      interval: 15m0s
+      sourceRef:
+        kind: HelmRepository
+        name: teamhephy
+        namespace: deis
+      version: 2.23.0
+  interval: 15m15s
+  storageNamespace: deis
+  targetNamespace: deis
+  timeout: 10m0s
+  values:
+    controller:
+      platform_domain: deis.hephy.pro
+    global:
+      experimental_native_ingress: true
+      use_cni: true
