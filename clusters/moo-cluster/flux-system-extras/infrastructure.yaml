@@ -1,0 +1,22 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: flux-system-extras
+  namespace: flux-system
+spec:
+  interval: 11h54m31s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./infrastructure/flux-system-extras
+  dependsOn:
+    - name: ingress-nginx
+    - name: my-secrets
+  prune: false
+  validation: client
+  healthChecks:
+    - apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      name: webhook-receiver
+      namespace: flux-system
+  timeout: 2m0s
