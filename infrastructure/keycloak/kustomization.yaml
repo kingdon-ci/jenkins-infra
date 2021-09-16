@@ -38,7 +38,7 @@ patchesStrategicMerge:
           resources:
             requests:
               memory: 512Mi
-              cpu: 250m
+              cpu: 25m
             limits:
               memory: 768Mi
               cpu: 500m
