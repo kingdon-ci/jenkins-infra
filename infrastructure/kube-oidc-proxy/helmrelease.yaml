@@ -23,8 +23,8 @@ spec:
       issuerUrl: https://keycloak.hephy.pro/auth/realms/hephymoo
       usernameClaim: sub
     
-    extraArgs:
-      v: 10
+   # extraArgs:
+   #   v: 10
     
     ingress:
       enabled: true
