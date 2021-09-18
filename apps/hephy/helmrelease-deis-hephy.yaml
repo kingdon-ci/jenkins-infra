@@ -14,9 +14,34 @@ spec:
         namespace: deis
       version: 2.23.0
   interval: 15m15s
+  releaseName: deis-hephy
   storageNamespace: deis
   targetNamespace: deis
   timeout: 10m0s
+  postRenderers:
+    - kustomize:
+        patchesStrategicMerge:
+          - kind: DaemonSet
+            apiVersion: apps/v1
+            metadata:
+              name: deis-monitor-telegraf
+            "$patch": delete
+          - kind: Deployment
+            apiVersion: apps/v1
+            metadata:
+              name: deis-minio
+            spec:
+              template:
+                spec:
+                  containers:
+                  - name: deis-minio
+                    volumeMounts:
+                    - mountPath: /home/minio
+                      name: deis-hephy
+                  volumes:
+                  - name: deis-hephy
+                    persistentVolumeClaim:
+                      claimName: deis-hephy
   values:
     controller:
       platform_domain: deis.hephy.pro
