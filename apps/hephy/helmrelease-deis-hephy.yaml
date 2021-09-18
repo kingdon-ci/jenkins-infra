@@ -24,3 +24,17 @@ spec:
       experimental_native_ingress: true
       use_cni: true
       gunicorn_workers: 5
+      database_location: off-cluster
+      grafana_location: off-cluster
+      influxdb_location: off-cluster
+    database:
+      postgres:
+        name: hephy
+        username: hephy_admin
+        host: 10.17.12.227
+        port: "5432"
+  valuesFrom:
+  - kind: Secret
+    name: deis-db-admin-password
+    valuesKey: password
+    targetPath: database.postgres.password
