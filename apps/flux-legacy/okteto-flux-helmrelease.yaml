@@ -15,6 +15,7 @@ spec:
   releaseName: flux
   chart:
     spec:
+      version: ^1.11.1
       chart: flux
       sourceRef:
         kind: HelmRepository
