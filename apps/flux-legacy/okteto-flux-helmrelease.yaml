@@ -5,8 +5,8 @@ metadata:
   name: okteto-flux
   namespace: flux-system
 spec:
-  targetNamespace: fluxcd
-  storageNamespace: fluxcd
+  targetNamespace: flux
+  storageNamespace: flux
   install:
     createNamespace: true
     crds: CreateReplace
