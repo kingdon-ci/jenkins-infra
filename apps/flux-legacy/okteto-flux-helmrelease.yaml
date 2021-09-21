@@ -1,0 +1,41 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: okteto-flux
+  namespace: flux-system
+spec:
+  targetNamespace: fluxcd
+  storageNamespace: fluxcd
+  install:
+    createNamespace: true
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
+  releaseName: flux
+  chart:
+    spec:
+      chart: flux
+      sourceRef:
+        kind: HelmRepository
+        name: okteto-apps
+  interval: 40m0s
+  values:
+    flux:
+      git:
+        branch: own-branch
+        url: ssh://git@github.com/kingdonb/flux-getting-started.git
+      rbac:
+        create: true
+      serviceAccount:
+        create: true
+      clusterRole:
+        create: true
+    secret: df10802a8a2bd4ddacf0323838f495810ce61748
+    helm-operator:
+      rbac:
+        create: true
+      serviceAccount:
+        create: true
+      clusterRole:
+        create: true
