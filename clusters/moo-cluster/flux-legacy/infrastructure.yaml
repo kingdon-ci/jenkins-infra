@@ -9,11 +9,19 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./apps/flux-legacy
-  prune: false
+  prune: true
   validation: client
-  #healthChecks:
-  #  - apiVersion: networking.k8s.io/v1
-  #    kind: Ingress
-  #    name: webhook-receiver
-  #    namespace: flux-system
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: flux
+      namespace: flux
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: flux-memcached
+      namespace: flux
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: flux-helm-operator
+      namespace: flux
   timeout: 2m0s
