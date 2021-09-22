@@ -16,4 +16,4 @@ resources:
 - my-secrets
 - openvpn-as
 #- podinfo
-- flux-legacy
+#- flux-legacy
