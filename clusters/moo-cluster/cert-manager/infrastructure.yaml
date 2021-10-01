@@ -6,6 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 11h59m11s
+  retryInterval: 10m
   path: ./infrastructure/cert-manager
   prune: false
   sourceRef:
@@ -35,6 +36,7 @@ spec:
     - name: cert-manager
     - name: ingress-nginx
   interval: 11h3m40s
+  retryInterval: 10m
   path: ./infrastructure/cert-manager-issuers
   prune: false
   sourceRef:

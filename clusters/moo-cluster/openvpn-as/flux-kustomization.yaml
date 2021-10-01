@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 47h59m28s
+  retryInterval: 10m
  #suspend: true
   path: ./apps/openvpn-as
   prune: false

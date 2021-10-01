@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 11h59m11s
+  retryInterval: 10m
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -25,6 +26,7 @@ spec:
   dependsOn:
     - name: metallb
   interval: 11h3m40s
+  retryInterval: 10m
   timeout: 9m0s
   sourceRef:
     kind: GitRepository
