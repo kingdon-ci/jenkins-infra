@@ -15,5 +15,5 @@ resources:
 - metrics-server
 - my-secrets
 - openvpn-as
-- podinfo
+#- podinfo
 #- flux-legacy
