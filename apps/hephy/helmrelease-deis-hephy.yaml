@@ -21,6 +21,12 @@ spec:
   postRenderers:
     - kustomize:
         patchesStrategicMerge:
+          - kind: LoadBalancer
+            apiVersion: v1
+            metadata:
+              name: deis-builder
+            spec:
+              loadBalancerIP: 10.17.12.205        # deis-builder.nerdland.local
           - kind: DaemonSet
             apiVersion: apps/v1
             metadata:
