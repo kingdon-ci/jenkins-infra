@@ -57,6 +57,7 @@ spec:
     service:
       lb:
         type: LoadBalancer
+        ipAddress: 10.17.12.203         # openvpn-tcp.nerdland.local
     persistence:
       existingClaim: openvpn-openvpn-as-state
     ingress:
