@@ -10,7 +10,6 @@ spec:
     name: flux-system
   path: ./infrastructure/local-path-provisioner
   prune: false
-  validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment

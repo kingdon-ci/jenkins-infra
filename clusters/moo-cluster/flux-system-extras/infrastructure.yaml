@@ -13,7 +13,6 @@ spec:
     - name: ingress-nginx
     - name: my-secrets
   prune: false
-  validation: client
   healthChecks:
     - apiVersion: networking.k8s.io/v1
       kind: Ingress

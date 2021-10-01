@@ -13,7 +13,6 @@ spec:
     - name: metallb
     - name: metallb-instance
   prune: false
-  validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
