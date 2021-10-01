@@ -21,7 +21,7 @@ spec:
   postRenderers:
     - kustomize:
         patchesStrategicMerge:
-          - kind: LoadBalancer
+          - kind: Service
             apiVersion: v1
             metadata:
               name: deis-builder
