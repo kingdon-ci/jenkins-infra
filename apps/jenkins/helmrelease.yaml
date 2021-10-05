@@ -25,6 +25,7 @@ spec:
           apiVersion: apps/v1
           metadata:
             name: jenkins
+            namespace: jenkins
           spec:
             replicas: 0
   values:
