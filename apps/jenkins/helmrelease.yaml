@@ -18,6 +18,15 @@ spec:
         name: jenkinsci
         namespace: flux-system
       interval: 40m
+  postRenderers:
+  - kustomize:
+      patchesStrategicMerge:
+        - kind: StatefulSet
+          apiVersion: apps/v1
+          metadata:
+            name: jenkins
+          spec:
+            replicas: 0
   values:
     persistence:
       enabled: true
