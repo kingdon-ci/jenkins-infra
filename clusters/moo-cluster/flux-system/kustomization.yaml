@@ -9,5 +9,5 @@ patchesStrategicMerge:
 # - gotk-patches.yaml
 images:
 - name: ghcr.io/fluxcd/kustomize-controller
-  newName: docker.io/kingdonb/kustomize-controller
-  newTag: v1beta2-8426b396
+  newName: ghcr.io/fluxcd/kustomize-controller
+  newTag: v1beta2-50c71354
