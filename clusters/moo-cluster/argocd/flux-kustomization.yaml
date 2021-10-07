@@ -4,7 +4,7 @@ metadata:
   name: argocd
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 1m0s
   retryInterval: 10m0s
   suspend: true
   path: ./apps/argocd
