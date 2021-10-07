@@ -15,3 +15,5 @@ spec:
       name: flux-system
     - kind: GitRepository
       name: flux-system-rw
+    - kind: GitRepository
+      name: my-secrets-branch
