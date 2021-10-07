@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-- https://github.com/fluxcd/kustomize-controller/config/crd?ref=v1beta2
+- https://github.com/fluxcd/kustomize-controller/config/crd?ref=5fe3ac8c9facc8bf011eb6ce06ae5a52bb06f496
 - gotk-crds.yaml
 patchesStrategicMerge:
 # - gotk-patches.yaml
