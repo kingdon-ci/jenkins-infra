@@ -25,12 +25,12 @@ spec:
   validation: client
   wait: true
   patches:
-    - patch: |-
-        apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    - target:
         kind: HelmRelease
         metadata:
           name: jenkinsci
           namespace: flux-system
+      patch: |-
         spec:
           postRenderers:
           - kustomize:
