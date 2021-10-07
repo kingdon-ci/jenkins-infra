@@ -4,7 +4,7 @@ metadata:
   name: local-path-provisioner
   namespace: flux-system
 spec:
-  interval: 11h59m11s
+  interval: 10m
   retryInterval: 10m
   sourceRef:
     kind: GitRepository

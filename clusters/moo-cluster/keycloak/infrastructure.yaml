@@ -4,7 +4,7 @@ metadata:
   name: keycloak
   namespace: flux-system
 spec:
-  interval: 11h56m11s
+  interval: 10m
   retryInterval: 10m
   sourceRef:
     kind: GitRepository

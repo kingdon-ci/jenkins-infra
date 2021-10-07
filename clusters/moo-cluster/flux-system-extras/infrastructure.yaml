@@ -4,7 +4,7 @@ metadata:
   name: flux-system-extras
   namespace: flux-system
 spec:
-  interval: 11h54m31s
+  interval: 10m
   retryInterval: 10m
   sourceRef:
     kind: GitRepository
