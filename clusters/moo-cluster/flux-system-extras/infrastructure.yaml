@@ -1,4 +1,4 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: flux-system-extras
@@ -14,6 +14,7 @@ spec:
     - name: ingress-nginx
     - name: my-secrets
   prune: false
+  wait: true
   validation: client
   healthChecks:
     - apiVersion: networking.k8s.io/v1
