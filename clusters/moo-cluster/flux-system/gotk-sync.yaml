@@ -22,7 +22,6 @@ spec:
   timeout: 1m0s
   path: ./clusters/moo-cluster
   prune: true
-  wait: true
   sourceRef:
     kind: GitRepository
     name: flux-system
