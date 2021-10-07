@@ -8,7 +8,9 @@ spec:
   interval: 40m0s
   ref:
     branch: main
-  url: https://github.com/kingdon-ci/jenkins-infra
+  secretRef:
+    name: flux-system
+  url: ssh://git@github.com/kingdon-ci/jenkins-infra
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
