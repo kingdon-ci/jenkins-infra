@@ -1,18 +1,18 @@
 ---
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: cert-manager
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 10m
   retryInterval: 10m
   path: ./infrastructure/cert-manager
-  prune: false
+  prune: true
+  wait: true
   sourceRef:
     kind: GitRepository
     name: flux-system
-  validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
@@ -26,25 +26,6 @@ spec:
       kind: Deployment
       name: cert-manager-webhook
       namespace: cert-manager
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-kind: Kustomization
-metadata:
-  name: cert-manager-issuers
-  namespace: flux-system
-spec:
-  dependsOn:
-    - name: cert-manager
-    - name: ingress-nginx
-  interval: 1m
-  retryInterval: 10m
-  path: ./infrastructure/cert-manager-issuers
-  prune: false
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  validation: client
-  healthChecks:
     - apiVersion: cert-manager.io/v1
       kind: ClusterIssuer
       name: example-clusterissuer
