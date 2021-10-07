@@ -8,4 +8,4 @@ patchesStrategicMerge:
 images:
 - name: ghcr.io/fluxcd/kustomize-controller
   newName: stefanprodan/kustomize-controller
-  newTag: fixes-v1beta2
+  newTag: fixes2-v1beta2
