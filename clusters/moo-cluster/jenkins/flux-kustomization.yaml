@@ -27,9 +27,8 @@ spec:
   patches:
     - target:
         kind: HelmRelease
-        metadata:
-          name: jenkinsci
-          namespace: flux-system
+        name: jenkinsci
+        namespace: flux-system
       patch: |-
         spec:
           postRenderers:
