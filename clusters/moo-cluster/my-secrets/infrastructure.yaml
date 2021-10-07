@@ -11,7 +11,7 @@ spec:
     secretRef:
       name: sops-gpg
   interval: 30m0s
-  retryInterval: 10m
+  retryInterval: 1m
   path: ./secrets/moo-cluster
   prune: true
   sourceRef:

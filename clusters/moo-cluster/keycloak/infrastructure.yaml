@@ -1,10 +1,10 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: keycloak
   namespace: flux-system
 spec:
-  interval: 11h56m11s
+  interval: 1m
   retryInterval: 10m
   sourceRef:
     kind: GitRepository
@@ -14,10 +14,11 @@ spec:
     - name: my-secrets
     - name: ingress-nginx
   prune: false
+  wait: true
   validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
       name: keycloak
       namespace: keycloak
-  timeout: 2m0s
+  timeout: 4m0s
