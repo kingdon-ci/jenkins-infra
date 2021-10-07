@@ -11,6 +11,7 @@ spec:
     name: flux-system
   path: ./infrastructure/metallb
   prune: false
+  validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
@@ -33,6 +34,7 @@ spec:
     name: flux-system
   path: ./infrastructure/metallb-instances/moo-cluster
   prune: false
+  validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: DaemonSet

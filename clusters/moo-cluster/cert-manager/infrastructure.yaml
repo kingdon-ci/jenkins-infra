@@ -12,6 +12,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
+  validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
@@ -42,6 +43,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
+  validation: client
   healthChecks:
     - apiVersion: cert-manager.io/v1
       kind: ClusterIssuer

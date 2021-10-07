@@ -11,6 +11,7 @@ spec:
     name: flux-system
   path: ./apps/flux-legacy
   prune: true
+  validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
