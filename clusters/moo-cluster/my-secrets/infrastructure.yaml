@@ -1,4 +1,15 @@
 ---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: my-secrets-branch
+  namespace: flux-system
+spec:
+  interval: 40m0s
+  ref:
+    branch: secrets
+  url: https://github.com/kingdon-ci/jenkins-infra
+---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
@@ -16,4 +27,4 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: my-secrets-branch

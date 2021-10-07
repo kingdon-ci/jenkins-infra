@@ -25,7 +25,8 @@ spec:
   validation: client
   wait: true
   patches:
-    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    - |-
+      apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
       metadata:
         name: jenkinsci
