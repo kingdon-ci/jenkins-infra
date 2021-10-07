@@ -5,3 +5,7 @@ resources:
 - gotk-sync.yaml
 patchesStrategicMerge:
 # - gotk-patches.yaml
+images:
+- name: ghcr.io/fluxcd/kustomize-controller
+  newName: stefanprodan/kustomize-controller
+  newTag: fixes-v1beta2
