@@ -18,16 +18,6 @@ spec:
         name: jenkinsci
         namespace: flux-system
       interval: 40m
-  postRenderers:
-  - kustomize:
-      patchesStrategicMerge:
-        - kind: StatefulSet
-          apiVersion: apps/v1
-          metadata:
-            name: jenkins
-            namespace: jenkins
-          spec:
-            replicas: 1
   values:
     persistence:
       enabled: true
@@ -36,17 +26,17 @@ spec:
       #image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
       #tag: lts-5e87b83f-1630687511 # {"$imagepolicy": "flux-system:jenkins:tag"}
       #installPlugins: false
-      installPlugins:
-        - kubernetes
-        - workflow-aggregator
-        - git
-        - configuration-as-code
-        - authorize-project
-        - github-oauth
-        - command-launcher
-        - jdk-tool
-        - job-dsl
-        - strict-crumb-issuer
+      #installPlugins:
+      #  - kubernetes
+      #  - workflow-aggregator
+      #  - git
+      #  - configuration-as-code
+      #  - authorize-project
+      #  - github-oauth
+      #  - command-launcher
+      #  - jdk-tool
+      #  - job-dsl
+      #  - strict-crumb-issuer
       imagePullPolicy: IfNotPresent
       ingress:
         enabled: true

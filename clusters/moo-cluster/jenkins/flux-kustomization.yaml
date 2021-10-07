@@ -24,3 +24,40 @@ spec:
   timeout: 6m0s
   validation: client
   wait: true
+patches:
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    metadata:
+      name: jenkinsci
+      namespace: flux-system
+    spec:
+      postRenderers:
+      - kustomize:
+          patchesStrategicMerge:
+            - kind: StatefulSet
+              apiVersion: apps/v1
+              metadata:
+                name: jenkins
+                namespace: jenkins
+              spec:
+                replicas: 0
+      values:
+        persistence:
+          enabled: true
+          #existingClaim: jenkins-precreated
+        controller:
+          #image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
+          #tag: lts-5e87b83f-1630687511 # {"$imagepolicy": "flux-system:jenkins:tag"}
+          #installPlugins: false
+          installPlugins:
+            - kubernetes
+            - workflow-aggregator
+            - git
+            - configuration-as-code
+            - authorize-project
+            - github-oauth
+            - command-launcher
+            - jdk-tool
+            - job-dsl
+            - strict-crumb-issuer
+          # find additional configuration at: ../../../apps/jenkins/helmrelease.yaml
