@@ -19,6 +19,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
+  timeout: 1m0s
   path: ./clusters/moo-cluster
   prune: true
   wait: true
