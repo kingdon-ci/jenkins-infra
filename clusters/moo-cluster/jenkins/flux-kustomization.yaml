@@ -64,6 +64,6 @@ spec:
               #  - strict-crumb-issuer
               # find additional configuration at: ../../../apps/jenkins/helmrelease.yaml
   images:
-    - name: kingdonb/jenkins
+    - name: jenkins
       newName: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
       newTag: lts-5e87b83f-1633713280 # {"$imagepolicy": "flux-system:jenkins:tag"}
