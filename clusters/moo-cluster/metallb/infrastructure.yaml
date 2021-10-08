@@ -25,3 +25,4 @@ spec:
     - apiVersion: metallb.io/v1alpha1
       kind: AddressPool
       name: moo-cluster
+      namespace: metallb-system
