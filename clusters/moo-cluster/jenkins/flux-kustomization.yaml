@@ -50,8 +50,6 @@ spec:
               enabled: true
               #existingClaim: jenkins-precreated
             controller:
-              # image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
-              # tag: lts-5e87b83f-1630687511 # {"$imagepolicy": "flux-system:jenkins:tag"}
               #installPlugins: false
               #installPlugins:
               #  - kubernetes
@@ -65,3 +63,7 @@ spec:
               #  - job-dsl
               #  - strict-crumb-issuer
               # find additional configuration at: ../../../apps/jenkins/helmrelease.yaml
+  images:
+  - name: jenkins/jenkins
+    newName: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
+    newTag: lts-5e87b83f-1630687511 # {"$imagepolicy": "flux-system:jenkins:tag"}
