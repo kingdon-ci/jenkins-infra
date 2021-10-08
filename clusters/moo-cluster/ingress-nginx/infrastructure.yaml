@@ -1,10 +1,10 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: ingress-nginx
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 173m
   retryInterval: 10m
   sourceRef:
     kind: GitRepository
@@ -12,8 +12,8 @@ spec:
   path: ./infrastructure/ingress-nginx
   dependsOn:
     - name: metallb
-    - name: metallb-instance
-  prune: false
+  prune: true
+  wait: true
   validation: client
   healthChecks:
     - apiVersion: apps/v1

@@ -13,6 +13,3 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
   name: 18533dbd-0526-466c-b5ea-c8bb6725a18d
-- apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: abcde
