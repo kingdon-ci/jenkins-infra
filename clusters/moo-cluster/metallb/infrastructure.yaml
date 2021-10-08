@@ -6,14 +6,22 @@ metadata:
 spec:
   interval: 1m
   retryInterval: 10m
+  timeout: 2m
   sourceRef:
     kind: GitRepository
     name: flux-system
   path: ./infrastructure/metallb
   prune: true
-  wait: true
+  wait: false
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
       name: metallb-operator-controller-manager
       namespace: metallb-system
+    - apiVersion: metallb.io/v1beta1
+      kind: MetalLB
+      name: metallb
+      namespace: metallb-system
+    - apiVersion: metallb.io/v1alpha1
+      kind: AddressPool
+      name: moo-cluster
