@@ -4,7 +4,7 @@ metadata:
   name: persistence
   namespace: flux-system
 spec:
-  interval: 11h14m21s
+  interval: 43m
   suspend: false
   sourceRef:
     kind: GitRepository
