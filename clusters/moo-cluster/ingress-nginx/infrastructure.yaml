@@ -12,8 +12,8 @@ spec:
   path: ./infrastructure/ingress-nginx
   dependsOn:
     - name: metallb
-    - name: metallb-instance
-  prune: false
+  prune: true
+  wait: true
   validation: client
   healthChecks:
     - apiVersion: apps/v1
