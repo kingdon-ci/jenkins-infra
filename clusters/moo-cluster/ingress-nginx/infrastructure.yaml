@@ -4,7 +4,7 @@ metadata:
   name: ingress-nginx
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 173m
   retryInterval: 10m
   sourceRef:
     kind: GitRepository
