@@ -21,6 +21,6 @@ spec:
     kind: GitRepository
     name: flux-system-rw
   update:
-    path: ./apps/jenkins
+    path: ./clusters/moo-cluster/jenkins
     strategy: Setters
 
