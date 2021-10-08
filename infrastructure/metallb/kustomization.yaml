@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
   - github.com/metallb/metallb-operator//config/default?ref=v0.10.2
   - github.com/metallb/metallb-operator//config/metallb_rbac?ref=v0.10.2
+  - moo-cluster/moo-cluster-address-pool.yaml
 namespace: metallb-system
