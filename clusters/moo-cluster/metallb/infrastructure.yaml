@@ -10,45 +10,11 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./infrastructure/metallb
-  prune: false
+  prune: true
+  wait: true
   validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
       name: metallb-operator-controller-manager
-      namespace: metallb-system
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-kind: Kustomization
-metadata:
-  name: metallb-instance
-  namespace: flux-system
-spec:
-  dependsOn:
-    - name: metallb
-  interval: 10m
-  retryInterval: 10m
-  timeout: 9m0s
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  path: ./infrastructure/metallb-instances/moo-cluster
-  prune: true
-  validation: client
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: DaemonSet
-      name: speaker
-      namespace: metallb-system
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: controller
-      namespace: metallb-system
-    - apiVersion: metallb.io/v1beta1
-      kind: MetalLB
-      name: metallb
-      namespace: metallb-system
-    - apiVersion: metallb.io/v1alpha1
-      kind: AddressPool
-      name: moo-cluster
       namespace: metallb-system
