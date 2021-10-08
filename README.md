@@ -8,3 +8,4 @@ In order to complete the "fast iterative closed loop" experience, some secrets
 may be required to enable webhooks and other useful things.
 
 TODO - how to prepare all the secrets
+test - webhook
