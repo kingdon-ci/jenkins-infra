@@ -56,8 +56,10 @@ spec:
         hostName: jenkins-hooks.hephy.pro
         ingressClassName: public
         annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-production
-        #kubernetes.io/ingress.class: public
+          cert-manager.io/cluster-issuer: letsencrypt-production
+          #kubernetes.io/ingress.class: public
+        paths:
+          - /github-webhook
         tls:
           - secretName: jenkins-hooks.hephy.pro
             hosts:
