@@ -4,3 +4,6 @@ resources:
 - flux-kustomization.yaml
 - namespace.yaml
 - namespace-dev.yaml
+- apps-podinfo-automation.yaml
+- podinfo-policy.yaml
+- kingdonb-podinfo-registry.yaml
