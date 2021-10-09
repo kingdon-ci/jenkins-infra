@@ -13,4 +13,5 @@ spec:
   dependsOn:
     - name: metallb
   wait: true
+  prune: true
   timeout: 4m30s
