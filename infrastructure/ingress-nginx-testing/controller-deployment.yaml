@@ -93,6 +93,9 @@ spec:
             - name: https
               containerPort: 443
               protocol: TCP
+            - name: metrics
+              containerPort: 10254
+              protocol: TCP
             - name: webhook
               containerPort: 8443
               protocol: TCP

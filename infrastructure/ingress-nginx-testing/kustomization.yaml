@@ -8,6 +8,7 @@ resources:
 - controller-ingressclass.yaml
 - controller-role.yaml
 - controller-rolebinding.yaml
+- controller-service-metrics.yaml
 - controller-service-webhook.yaml
 - controller-service.yaml
 - controller-serviceaccount.yaml
