@@ -50,7 +50,7 @@ spec:
           - secretName: jenkins.hephy.pro
             hosts:
               - jenkins.hephy.pro
-      secondaryIngress:
+      secondaryingress:
         enabled: true
         apiVersion: networking.k8s.io/v1
         hostName: jenkins-hooks.hephy.pro
