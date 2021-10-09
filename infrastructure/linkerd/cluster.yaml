@@ -91,18 +91,10 @@ spec:
     kind: GitRepository
     name: linkerd-demos
   healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
       name: ambassador-edge-stack
-      namespace: ambassador
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: ambassador-edge-stack-redis
-      namespace: ambassador
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: ambassador-edge-stack-agent
-      namespace: ambassador
+      namespace: flux-system
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
@@ -129,3 +121,22 @@ spec:
       kind: Deployment
       name: flagger
       namespace: linkerd-viz
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: linkerd-finally
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./gitops/flux/runtime/source/finalizers
+  dependsOn:
+    - name: flagger
+    - name: linkerd-viz
+    - name: ambassador
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: gitops
+  validation: client
+  healthChecks:
