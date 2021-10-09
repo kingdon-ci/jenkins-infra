@@ -5,5 +5,6 @@ resources:
 - namespace.yaml
 - namespace-dev.yaml
 - apps-podinfo-automation.yaml
+- podinfo-dev-policy.yaml
 - podinfo-policy.yaml
 - kingdonb-podinfo-registry.yaml
