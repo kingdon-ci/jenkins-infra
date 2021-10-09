@@ -138,5 +138,5 @@ spec:
   wait: true
   sourceRef:
     kind: GitRepository
-    name: gitops
+    name: linkerd-demos
   validation: client
