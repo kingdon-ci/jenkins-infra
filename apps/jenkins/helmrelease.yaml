@@ -53,15 +53,15 @@ spec:
       secondaryIngress:
         enabled: true
         apiVersion: networking.k8s.io/v1
-        hostName: jenkins.hephy.pro
+        hostName: jenkins-hooks.hephy.pro
         ingressClassName: public
         annotations:
-        #cert-manager.io/cluster-issuer: letsencrypt-production
+        cert-manager.io/cluster-issuer: letsencrypt-production
         #kubernetes.io/ingress.class: public
         tls:
-          - secretName: jenkins.hephy.pro
+          - secretName: jenkins-hooks.hephy.pro
             hosts:
-              - jenkins.hephy.pro
+              - jenkins-hooks.hephy.pro
       JCasC:
         defaultConfig: false
         configScripts:
