@@ -166,7 +166,7 @@ spec:
                 configs:
                 - credentialsId: "f9faa7da-c0d1-45e7-aa59-8e52c37e70a9"
                   name: "GitHub"
-                hookUrl: "https://jenkins.hephy.pro/github-webhook/"
+                hookUrl: "https://jenkins-hooks.hephy.pro/github-webhook/"
               gitHubConfiguration:
                 apiRateLimitChecker: ThrottleForNormalize
           github-oauth: |
