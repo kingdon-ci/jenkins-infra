@@ -3,4 +3,4 @@ kind: Deployment
 metadata:
   name: podinfo
   labels:
-    version: 6.0.0 # {"$imagepolicy": "flux-system:podinfo:tag"}
+    version: 6.0.0 # {"$imagepolicy": "flux-system:podinfo-dev:tag"}
