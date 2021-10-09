@@ -114,15 +114,13 @@ spec:
                             strategyId(1)
                           }
                           pruneStaleBranchTrait()
+                          gitHubPullRequestDiscovery {
+                            strategyId(1)
+                          }
                         }
                       }
                     }
                     configure {
-                      def traits = it / navigators / 'org.jenkinsci.plugins.github__branch__source.GitHubSCMNavigator' / traits
-                      traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {
-                        strategyId 1
-                      }
-
                       // scan all repos at least once a day
                       def triggers = it / 'triggers'
                       triggers << 'com.cloudbees.hudson.plugins.folder.computed.PeriodicFolderTrigger' {
