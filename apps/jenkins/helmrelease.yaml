@@ -86,15 +86,18 @@ spec:
                               gitHubBranchDiscovery {
                                 strategyId(1)
                               }
+                              gitHubPullRequestDiscovery {
+                                strategyId(1)
+                              }
                               pruneStaleBranchTrait()
                             }
                           }
                         }
-                      }
-                      configure {
-                        def traits = it / navigators / 'org.jenkinsci.plugins.github__branch__source.GitHubSCMNavigator' / traits
-                        traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {
-                          strategyId 1
+                        configure {
+                          def traits = it / navigators / 'org.jenkinsci.plugins.github__branch__source.GitHubSCMNavigator' / traits
+                          traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {
+                            strategyId 1
+                          }
                         }
                       }
                     }
