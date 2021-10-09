@@ -135,8 +135,8 @@ spec:
     - name: linkerd-viz
     - name: ambassador
   prune: true
+  wait: true
   sourceRef:
     kind: GitRepository
     name: gitops
   validation: client
-  healthChecks:
