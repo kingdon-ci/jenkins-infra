@@ -1,0 +1,10 @@
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: podinfo-dev
+  namespace: podinfo-dev
+spec:
+  prefix: /
+  service: podinfo.podinfo-dev:9898
+  rewrite: ""
+  host: podinfo-dev.hephy.pro

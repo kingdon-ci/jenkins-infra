@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: podinfo-dev
 bases:
   - github.com/kingdonb/podinfo//kustomize
+  - mappings.yaml
 patchesStrategicMerge:
   - patch.yaml
