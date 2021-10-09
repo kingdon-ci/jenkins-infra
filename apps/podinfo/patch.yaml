@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: podinfod
-          image: 6.0.1 # {"$imagepolicy": "flux-system:podinfo-dev"}
+          image: docker.io/kingdonb/podinfo:6.0.1 # {"$imagepolicy": "flux-system:podinfo-dev"}
