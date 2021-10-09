@@ -76,7 +76,7 @@ spec:
                         source {
                           github {
                             id('kingdon-podinfo-github')
-                            scanCredentialsId('9c4638e0-4ed9-48c6-b0e1-38550d345448')
+                            credentialsId('9c4638e0-4ed9-48c6-b0e1-38550d345448')
                             repoOwner('kingdonb')
                             repository('podinfo')
                             traits {
