@@ -7,4 +7,5 @@ resources:
 - git-webhook-receiver.yaml
 - linkerd-demos-git-webhook-receiver.yaml
 - image-webhook-receiver.yaml
+- podinfo-image-webhook-receiver.yaml
 - on-call-webapp-alert.yaml
