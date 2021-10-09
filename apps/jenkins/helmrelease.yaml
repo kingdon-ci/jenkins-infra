@@ -80,6 +80,7 @@ spec:
                             repoOwner('kingdonb')
                             repository('podinfo')
                             repositoryUrl('https://github.com/kingdonb/podinfo')
+                            configuredByUrl(false)
                             traits {
                               gitHubTagDiscovery()
                               gitHubBranchDiscovery {
