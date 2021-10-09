@@ -8,4 +8,4 @@ patchesStrategicMerge:
 images:
 - name: ghcr.io/fluxcd/kustomize-controller
   newName: ghcr.io/fluxcd/kustomize-controller
-  newTag: 0.14.1
+  newTag: v0.14.1
