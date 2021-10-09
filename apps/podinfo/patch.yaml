@@ -2,5 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: podinfo
-  labels:
-    version: 6.0.0 # {"$imagepolicy": "flux-system:podinfo:tag"}
+spec:
+  template:
+    spec:
+      containers:
+        - name: podinfod
+          image: docker.io/kingdonb/podinfo:master-8da10f69-1633813959 # {"$imagepolicy": "flux-system:podinfo-dev"}

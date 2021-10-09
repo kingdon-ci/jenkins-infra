@@ -2,9 +2,9 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
 metadata:
-  name: stefanprodan-podinfo
+  name: kingdonb-podinfo
   namespace: flux-system
 spec:
-  image: docker.io/stefanprodan/podinfo
+  image: docker.io/kingdonb/podinfo
   interval: 35h0s
 

@@ -1,16 +1,17 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: linkerd
   namespace: flux-system
 spec:
-  interval: 30m29s
+  interval: 11h10m30s
+  retryInterval: 10m0s
   path: ./gitops/flux/runtime/source/linkerd
   prune: true
+  wait: true
   sourceRef:
     kind: GitRepository
     name: linkerd-demos
-  validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
@@ -41,13 +42,13 @@ metadata:
 spec:
   dependsOn:
   - name: linkerd
-  interval: 31m29s
+  interval: 11h15m30s
+  retryInterval: 10m0s
   path: ./gitops/flux/runtime/source/linkerd-viz
   prune: true
   sourceRef:
     kind: GitRepository
     name: linkerd-demos
-  validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
@@ -82,28 +83,20 @@ metadata:
 spec:
   dependsOn:
   - name: linkerd-viz
-  interval: 33m29s
+  interval: 11h20m30s
+  retryInterval: 10m0s
   path: ./gitops/flux/runtime/source/ambassador
   prune: true
   sourceRef:
     kind: GitRepository
     name: linkerd-demos
-  validation: client
   healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
       name: ambassador-edge-stack
-      namespace: ambassador
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: ambassador-edge-stack-redis
-      namespace: ambassador
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: ambassador-edge-stack-agent
-      namespace: ambassador
+      namespace: flux-system
 ---
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: flagger
@@ -111,15 +104,39 @@ metadata:
 spec:
   dependsOn:
   - name: linkerd-viz
-  interval: 30m59s
+  interval: 11h25m30s
+  retryInterval: 10m0s
   path: ./gitops/flux/runtime/source/flagger
   prune: true
+  wait: true
   sourceRef:
     kind: GitRepository
     name: linkerd-demos
-  validation: client
+  postBuild:
+    substituteFrom:
+      - kind: Secret
+        name: slack-url
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
       name: flagger
       namespace: linkerd-viz
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: linkerd-finally
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./gitops/flux/runtime/source/finalizers
+  dependsOn:
+    - name: flagger
+    - name: linkerd-viz
+    - name: ambassador
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: linkerd-demos
+  validation: client

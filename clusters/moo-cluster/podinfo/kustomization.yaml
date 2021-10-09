@@ -1,5 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-#- flux-kustomization.yaml   # provided via infra/linkerd/linkerd-demos/gitops/flux/apps/
+- flux-kustomization.yaml
 - namespace.yaml
+- namespace-dev.yaml
+- apps-podinfo-automation.yaml
+- podinfo-dev-policy.yaml
+- podinfo-policy.yaml
+- kingdonb-podinfo-registry.yaml

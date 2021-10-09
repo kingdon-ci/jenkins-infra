@@ -50,21 +50,52 @@ spec:
           - secretName: jenkins.hephy.pro
             hosts:
               - jenkins.hephy.pro
-      secondaryIngress:
+      secondaryingress:
         enabled: true
         apiVersion: networking.k8s.io/v1
-        hostName: jenkins.hephy.pro
+        hostName: jenkins-hooks.hephy.pro
         ingressClassName: public
         annotations:
-        #cert-manager.io/cluster-issuer: letsencrypt-production
-        #kubernetes.io/ingress.class: public
+          cert-manager.io/cluster-issuer: letsencrypt-production
+          #kubernetes.io/ingress.class: public
+        paths:
+          - /github-webhook
         tls:
-          - secretName: jenkins.hephy.pro
+          - secretName: jenkins-hooks.hephy.pro
             hosts:
-              - jenkins.hephy.pro
+              - jenkins-hooks.hephy.pro
       JCasC:
         defaultConfig: false
         configScripts:
+          kingdon-podinfo-app: |
+            jobs:
+              - script: >
+                  multibranchPipelineJob('kingdon-podinfo') {
+                    branchSources {
+                      branchSource {
+                        source {
+                          github {
+                            id('kingdon-podinfo-github')
+                            credentialsId('9c4638e0-4ed9-48c6-b0e1-38550d345448')
+                            repoOwner('kingdonb')
+                            repository('podinfo')
+                            repositoryUrl('https://github.com/kingdonb/podinfo')
+                            configuredByUrl(false)
+                            traits {
+                              gitHubTagDiscovery()
+                              gitHubBranchDiscovery {
+                                strategyId(1)
+                              }
+                              gitHubPullRequestDiscovery {
+                                strategyId(1)
+                              }
+                              pruneStaleBranchTrait()
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
           kingdon-ci-org-folder: |
             jobs:
               - script: >
@@ -83,15 +114,13 @@ spec:
                             strategyId(1)
                           }
                           pruneStaleBranchTrait()
+                          gitHubPullRequestDiscovery {
+                            strategyId(1)
+                          }
                         }
                       }
                     }
                     configure {
-                      def traits = it / navigators / 'org.jenkinsci.plugins.github__branch__source.GitHubSCMNavigator' / traits
-                      traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {
-                        strategyId 1
-                      }
-
                       // scan all repos at least once a day
                       def triggers = it / 'triggers'
                       triggers << 'com.cloudbees.hudson.plugins.folder.computed.PeriodicFolderTrigger' {
@@ -151,7 +180,7 @@ spec:
                 configs:
                 - credentialsId: "f9faa7da-c0d1-45e7-aa59-8e52c37e70a9"
                   name: "GitHub"
-                hookUrl: "https://jenkins.hephy.pro/github-webhook/"
+                hookUrl: "https://jenkins-hooks.hephy.pro/github-webhook/"
               gitHubConfiguration:
                 apiRateLimitChecker: ThrottleForNormalize
           github-oauth: |
