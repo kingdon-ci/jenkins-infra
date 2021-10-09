@@ -72,17 +72,21 @@ spec:
               - script: >
                   multibranchPipelineJob('kingdon-podinfo') {
                     branchSources {
-                      github {
-                        id('kingdon-podinfo-github')
-                        scanCredentialsId('9c4638e0-4ed9-48c6-b0e1-38550d345448')
-                        repoOwner('kingdonb')
-                        repository('podinfo')
-                        traits {
-                          gitHubTagDiscovery()
-                          gitHubBranchDiscovery {
-                            strategyId(1)
+                      branchSource {
+                        source {
+                          github {
+                            id('kingdon-podinfo-github')
+                            scanCredentialsId('9c4638e0-4ed9-48c6-b0e1-38550d345448')
+                            repoOwner('kingdonb')
+                            repository('podinfo')
+                            traits {
+                              gitHubTagDiscovery()
+                              gitHubBranchDiscovery {
+                                strategyId(1)
+                              }
+                              pruneStaleBranchTrait()
+                            }
                           }
-                          pruneStaleBranchTrait()
                         }
                       }
                       configure {
