@@ -9,9 +9,7 @@ spec:
   retryInterval: 10m0s
   path: ./gitops/flux/apps/source/podinfo
   dependsOn:
-    - name: flagger
-    - name: linkerd-viz
-    - name: ambassador
+    - name: linkerd-finally
   prune: true
   sourceRef:
     kind: GitRepository
@@ -33,6 +31,23 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
+  name: podinfo-dev-hosts
+  namespace: flux-system
+spec:
+  interval: 613m1s
+  retryInterval: 10m0s
+  path: ./gitops/flux/apps/source/podinfo-dev
+  dependsOn:
+    - name: linkerd-finally
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: linkerd-demos
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
   name: emojivoto
   namespace: flux-system
 spec:
@@ -40,9 +55,7 @@ spec:
   retryInterval: 10m0s
   path: ./gitops/flux/apps/source/emojivoto
   dependsOn:
-    - name: flagger
-    - name: linkerd-viz
-    - name: ambassador
+    - name: linkerd-finally
   prune: true
   sourceRef:
     kind: GitRepository
@@ -75,9 +88,7 @@ spec:
   retryInterval: 10m0s
   path: ./gitops/flux/apps/source/booksapp
   dependsOn:
-    - name: flagger
-    - name: linkerd-viz
-    - name: ambassador
+    - name: linkerd-finally
   prune: true
   sourceRef:
     kind: GitRepository
