@@ -1,0 +1,26 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: linkerd-demos-podinfo
+  namespace: flux-system
+spec:
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: main
+  interval: 168h0m0s
+  sourceRef:
+    kind: GitRepository
+    name: linkerd-demos
+  update:
+    path: ./gitops/flux/apps/source/podinfo
+    strategy: Setters
+

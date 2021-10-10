@@ -8,3 +8,4 @@ resources:
 - podinfo-dev-policy.yaml
 - podinfo-policy.yaml
 - kingdonb-podinfo-registry.yaml
+- linkerd-demos-podinfo-automation.yaml

@@ -8,5 +8,6 @@ spec:
   interval: 60m0s
   ref:
     branch: main
-  url: https://github.com/kingdonb/linkerd-demos
-
+  url: ssh://git@github.com/kingdonb/linkerd-demos
+  secretRef:
+    name: linkerd-demos
