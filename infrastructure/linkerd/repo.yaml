@@ -10,4 +10,4 @@ spec:
     branch: main
   url: ssh://git@github.com/kingdonb/linkerd-demos
   secretRef:
-    name: linkerd-demos-rw
+    name: linkerd-demos
