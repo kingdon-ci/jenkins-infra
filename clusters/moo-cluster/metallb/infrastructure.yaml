@@ -4,7 +4,7 @@ metadata:
   name: metallb
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 10h30m
   retryInterval: 10m
   timeout: 2m
   sourceRef:
