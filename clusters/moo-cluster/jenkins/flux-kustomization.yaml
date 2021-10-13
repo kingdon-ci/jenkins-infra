@@ -44,7 +44,7 @@ spec:
                     name: jenkins
                     namespace: jenkins
                   spec:
-                    replicas: 0
+                    replicas: 1
           values:
             persistence:
               enabled: true
