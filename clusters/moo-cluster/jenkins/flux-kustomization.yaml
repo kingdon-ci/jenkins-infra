@@ -21,7 +21,7 @@ spec:
       kind: StatefulSet
       name: jenkins
       namespace: jenkins
-  timeout: 6m0s
+  timeout: 9m0s
   validation: client
   wait: true
   patches:
