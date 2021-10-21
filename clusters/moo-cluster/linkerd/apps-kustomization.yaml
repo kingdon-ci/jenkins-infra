@@ -118,7 +118,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 863m14s
-  retryInterval: 10m0s
+  retryInterval: 5m0s
   path: ./gitops/flux/apps/source/deis
   dependsOn:
     - name: ambassador
