@@ -4,8 +4,9 @@ metadata:
   name: kube-oidc-proxy
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 75m
   retryInterval: 10m
+  timeout: 5m0s
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -20,4 +21,3 @@ spec:
       kind: Deployment
       name: kube-oidc-proxy
       namespace: kube-oidc-proxy
-  timeout: 2m0s

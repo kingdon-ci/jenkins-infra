@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 36h45m10s
+  timeout: 4m0s
   releaseName: kube-oidc-proxy
   targetNamespace: kube-oidc-proxy
   storageNamespace: kube-oidc-proxy
