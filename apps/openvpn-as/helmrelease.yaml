@@ -23,6 +23,21 @@ spec:
         name: kingdonb-helm-charts-1
         namespace: flux-system
       interval: 40m
+  postRenderers:
+  - kustomize:
+      patchesStrategicMerge:
+      - kind: Deployment
+        apiVersion: apps/v1
+        metadata:
+          name: openvpn-openvpn-as
+        spec:
+          template:
+            spec:
+              tolerations:
+              - key: "node-role.kubernetes.io/master"
+                operator: "Exists"
+                effect: "NoSchedule"
+
   valuesFrom:
   - kind: Secret
     name: vpn-admin-superuser
