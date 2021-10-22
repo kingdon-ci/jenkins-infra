@@ -5,11 +5,12 @@ metadata:
   namespace: flux-system
 spec:
   interval: 47h59m28s
+  timeout: 2m0s
+  retryInterval: 3m0s
   path: ./apps/podinfo
   prune: true
   wait: true
   sourceRef:
     kind: GitRepository
     name: flux-system
-  timeout: 2m0s
 
