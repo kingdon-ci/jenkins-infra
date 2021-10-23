@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: podinfod
-          image: docker.io/kingdonb/podinfo:master-0688d86e-1634844278 # {"$imagepolicy": "flux-system:podinfo-dev"}
+          image: docker.io/kingdonb/podinfo:master-0688d86e-1635014598 # {"$imagepolicy": "flux-system:podinfo-dev"}
