@@ -4,7 +4,7 @@ metadata:
   name: jenkins-scale
   namespace: flux-system
 spec:
-  interval: 1h9m
+  interval: 22h15m
   retryInterval: 10m
   timeout: 9m0s
  #suspend: true
