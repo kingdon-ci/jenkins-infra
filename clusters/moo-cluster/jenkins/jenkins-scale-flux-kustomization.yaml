@@ -1,0 +1,23 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: jenkins-scale
+  namespace: flux-system
+spec:
+  interval: 1h9m
+  retryInterval: 10m
+  timeout: 9m0s
+ #suspend: true
+  path: ./apps/jenkins-scale
+  prune: false
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  dependsOn:
+    - name: jenkins
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: StatefulSet
+      name: jenkins
+      namespace: jenkins

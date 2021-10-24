@@ -6,9 +6,11 @@ metadata:
 spec:
   interval: 53m
   retryInterval: 10m
+  timeout: 9m0s
  #suspend: true
   path: ./apps/jenkins
   prune: false
+  wait: true
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -21,9 +23,11 @@ spec:
       kind: StatefulSet
       name: jenkins
       namespace: jenkins
-  timeout: 9m0s
+    - apiVersion: v1
+      kind: PersistentVolume
+      name: jenkins
+      namespace: jenkins
   validation: client
-  wait: true
   patches:
     - target:
         kind: HelmRelease
