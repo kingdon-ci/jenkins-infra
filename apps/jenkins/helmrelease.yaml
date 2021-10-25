@@ -23,6 +23,14 @@ spec:
       enabled: true
       #existingClaim: jenkins-precreated
     controller:
+      resources:
+        requests:
+          cpu: "512m"
+          memory: "768Mi"
+        limits:
+          cpu: "4000m"
+          memory: "6Gi"
+
       #image: kingdonb/jenkins # {"$imagepolicy": "flux-system:jenkins:image"}
       #tag: lts-5e87b83f-1633718717 # {"$imagepolicy": "flux-system:jenkins:tag"}
       #installPlugins: false
