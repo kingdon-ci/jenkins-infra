@@ -19,6 +19,10 @@ spec:
     - name: persistence
     - name: my-secrets
   healthChecks:
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: jenkinsci
+      namespace: flux-system
     - apiVersion: apps/v1
       kind: StatefulSet
       name: jenkins
