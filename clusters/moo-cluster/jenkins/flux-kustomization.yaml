@@ -52,7 +52,7 @@ spec:
                     name: jenkins
                     namespace: jenkins
                     annotations:
-                      something-changed: "the new thing"
+                      something-changed: "the new new thing"
                   spec:
                     replicas: 1
           values:
