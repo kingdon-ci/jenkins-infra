@@ -54,7 +54,7 @@ spec:
                     annotations:
                       something-changed: "the new thing"
                   spec:
-                    replicas: 0
+                    replicas: 1
           values:
             persistence:
               enabled: true
