@@ -7,7 +7,7 @@ spec:
   interval: 22h15m
   retryInterval: 10m
   timeout: 9m0s
-  suspend: true
+ #suspend: true
   path: ./apps/jenkins-scale
   prune: false
   wait: true
