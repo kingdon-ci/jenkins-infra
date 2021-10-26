@@ -6,6 +6,9 @@ metadata:
 spec:
   imageRepositoryRef:
     name: www-image
+  filterTags:
+    pattern: '^master-(?P<ts>[0-9]+)'
+    extract: '$ts'
   policy:
-    semver:
-      range: ^1.0
+    numerical:
+      order: asc
