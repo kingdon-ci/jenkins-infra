@@ -16,7 +16,7 @@ spec:
       messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
     push:
       branch: main
-  interval: 168h0m0s
+  interval: 2m0s
   sourceRef:
     kind: GitRepository
     name: linkerd-demos
