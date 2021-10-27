@@ -13,6 +13,7 @@ resources:
 - local-path-provisioner
 - metallb
 - metrics-server
+- monitoring
 - my-secrets
 - openvpn-as
 - podinfo
