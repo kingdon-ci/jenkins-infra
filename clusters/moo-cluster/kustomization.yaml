@@ -18,3 +18,4 @@ resources:
 - podinfo
 - podinfo-magic
 - flux-legacy
+- secret-generator-test
