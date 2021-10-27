@@ -10,6 +10,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./infrastructure/secret-generator-test
+  path: ./apps/secret-generator-test
   prune: true
   wait: true
