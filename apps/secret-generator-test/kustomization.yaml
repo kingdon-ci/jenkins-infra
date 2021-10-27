@@ -1,0 +1,6 @@
+namespace: test
+secretGenerator:
+  - name: magenta-cicd-token
+    files:
+    - .dockerconfigjson=config.json
+    type: kubernetes.io/dockerconfigjson
