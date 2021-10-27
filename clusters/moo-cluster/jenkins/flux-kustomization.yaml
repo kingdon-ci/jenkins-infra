@@ -51,10 +51,8 @@ spec:
                   metadata:
                     name: jenkins
                     namespace: jenkins
-                    annotations:
-                      something-changed: "the new new thing"
                   spec:
-                    replicas: 0
+                    replicas: 1
           values:
             persistence:
               enabled: true
