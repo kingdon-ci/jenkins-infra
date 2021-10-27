@@ -12,4 +12,4 @@ spec:
     name: flux-system
   path: ./infrastructure/monitoring
   prune: true
-  wait: true
+  wait: false
