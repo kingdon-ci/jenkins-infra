@@ -14,5 +14,8 @@ resources:
 ## Flux read-write GitRepo for image automation
 - flux-system-rw-gitrepo.yaml
 
+## Builder node label for ruby
+- node-msigaming-label-patch.yaml
+
 ## Jenkins charts gitrepo for chart debugging
 # - jenkins-charts-gitrepo.yaml
