@@ -24,7 +24,7 @@ spec:
   interval: 30m0s
   retryInterval: 1m
   path: ./secrets/moo-cluster
-  prune: true
+  prune: false
   sourceRef:
     kind: GitRepository
     name: my-secrets-branch
