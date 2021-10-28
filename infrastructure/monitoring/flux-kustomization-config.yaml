@@ -8,6 +8,8 @@ spec:
   interval: 1h0m0s
   path: ./manifests/monitoring/monitoring-config
   prune: true
+  dependsOn:
+    - name: monitoring-stack
   sourceRef:
     kind: GitRepository
     name: monitoring
