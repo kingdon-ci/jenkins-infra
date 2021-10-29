@@ -9,3 +9,7 @@ spec:
     provider: sops
     secretRef:
       name: sops-gpg
+  verify:
+    mode: head
+    secretRef:
+      name: pgp-public-keys
