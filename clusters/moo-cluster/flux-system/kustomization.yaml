@@ -3,8 +3,8 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-patchesStrategicMerge: # []
-- gotk-patches.yaml
+patchesStrategicMerge: []
+#- gotk-patches.yaml
 images: []
 #- name: ghcr.io/fluxcd/source-controller
 #  newName: docker.io/kingdonb/source-controller
