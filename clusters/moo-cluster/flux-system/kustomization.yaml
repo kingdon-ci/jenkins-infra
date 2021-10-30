@@ -3,12 +3,12 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-patchesStrategicMerge:
+patchesStrategicMerge: # []
 - gotk-patches.yaml
-images:
-- name: ghcr.io/fluxcd/source-controller
-  newName: docker.io/kingdonb/source-controller
-  newTag: fix-commit-verification-1797b3c3
+images: []
+#- name: ghcr.io/fluxcd/source-controller
+#  newName: docker.io/kingdonb/source-controller
+#  newTag: fix-commit-verification-1797b3c3
 #- name: ghcr.io/fluxcd/kustomize-controller
 #  newName: ghcr.io/fluxcd/kustomize-controller
 #  newTag: v0.14.1
