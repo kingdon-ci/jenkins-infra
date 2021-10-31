@@ -9,7 +9,7 @@ patches:
       group: apps
       kind: Deployment
       name: image-reflector-controller
-      namespace: flux
+      namespace: flux-system
     patch: |-
       - op: add
         path: /spec/template/spec/containers/0/args/-
