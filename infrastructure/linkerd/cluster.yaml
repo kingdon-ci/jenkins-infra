@@ -6,6 +6,7 @@ metadata:
 spec:
   interval: 11h10m30s
   retryInterval: 10m0s
+  timeout: 4m0s
   path: ./gitops/flux/runtime/source/linkerd
   prune: true
   wait: true
@@ -44,6 +45,7 @@ spec:
   - name: linkerd
   interval: 11h15m30s
   retryInterval: 10m0s
+  timeout: 4m0s
   path: ./gitops/flux/runtime/source/linkerd-viz
   prune: true
   sourceRef:
@@ -85,6 +87,7 @@ spec:
   - name: linkerd-viz
   interval: 11h20m30s
   retryInterval: 10m0s
+  timeout: 4m0s
   path: ./gitops/flux/runtime/source/ambassador
   prune: true
   sourceRef:
@@ -106,6 +109,7 @@ spec:
   - name: linkerd-viz
   interval: 11h25m30s
   retryInterval: 10m0s
+  timeout: 4m0s
   path: ./gitops/flux/runtime/source/flagger
   prune: true
   wait: true
