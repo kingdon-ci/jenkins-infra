@@ -25,7 +25,7 @@ spec:
     flux:
       image:
         repository: docker.io/kingdonb/flux
-        tag: suppress-noisy-deprecations-8f45be5d
+        tag: suppress-deprecation-warnings-8f45be5d
       git:
         branch: own-branch
         url: ssh://git@github.com/kingdonb/flux-getting-started.git
