@@ -23,9 +23,9 @@ spec:
   interval: 40m0s
   values:
     flux:
-      #image:
-      #  repository: docker.io/kingdonb/flux
-      #  tag: suppress-noisy-deprecations-3d8b1524
+      image:
+        repository: docker.io/kingdonb/flux
+        tag: suppress-noisy-deprecations-8f45be5d
       git:
         branch: own-branch
         url: ssh://git@github.com/kingdonb/flux-getting-started.git
