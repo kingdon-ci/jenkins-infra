@@ -58,7 +58,7 @@ spec:
         branch: own-branch
         url: ssh://git@github.com/kingdonb/flux-getting-started.git
       registry:
-        excludeImage: index.docker.io/jenkins/*,index.docker.io/library/*,index.docker.io/okteto/*,docker.io/weaveworks/*,index.docker.io/weaveworks/*,index.docker.io/grafana/*,index.docker.io/datawire/*,quay.io/keycloak/*,index.docker.io/kingdonb/*,index.docker.io/hephy/*,index.docker.io/fluxcd/*,index.docker.io/prom/*,index.docker.io/buoyantio/*,index.docker.io/kiwigrid/*,cr.l5d.io/linkerd/*,index.docker.io/rancher/*,quay.io/jetstack/*
+        excludeImage: index.docker.io/jenkins/*,index.docker.io/library/*,index.docker.io/okteto/*,docker.io/weaveworks/*,index.docker.io/weaveworks/*,index.docker.io/grafana/*,index.docker.io/datawire/*,quay.io/keycloak/*,index.docker.io/kingdonb/*,index.docker.io/hephy/*,index.docker.io/fluxcd/*,index.docker.io/prom/*,index.docker.io/buoyantio/*,index.docker.io/kiwigrid/*,cr.l5d.io/linkerd/*,index.docker.io/rancher/*,quay.io/jetstack/*,docker.l5d.io/buoyantio/*
       rbac:
         create: true
       serviceAccount:
