@@ -58,7 +58,7 @@ spec:
         branch: own-branch
         url: ssh://git@github.com/kingdonb/flux-getting-started.git
       registry:
-        excludeImage: index.docker.io/jenkins/*,index.docker.io/library/*,index.docker.io/okteto/*,docker.io/weaveworks/*,index.docker.io/weaveworks/*,index.docker.io/grafana/*,index.docker.io/datawire/*,quay.io/keycloak/*,index.docker.io/kingdonb/*,index.docker.io/hephy/*,index.docker.io/fluxcd/*,index.docker.io/prom/*,index.docker.io/buoyantio/*,index.docker.io/kiwigrid/*,cr.l5d.io/linkerd/*,index.docker.io/rancher/*,quay.io/jetstack/*,docker.l5d.io/buoyantio/*,quay.io/metallb/*,quay.io/kiwigrid/*,127.0.0.1:5555/*,ghcr.io/fluxcd/*,k8s.gcr.io/metrics-server/*,ghcr.io/linuxserver/*,k8s.gcr.io/ingress-nginx/*,k8s.gcr.io/kube-state-metrics/*,quay.io/prometheus/*,quay.io/prometheus-operator/*,k8s.gcr.io/coredns/*,k8s.gcr.io/kube-proxy
+        excludeImage: cr.l5d.io/linkerd/*,docker.l5d.io/buoyantio/*,ghcr.io/fluxcd/*,ghcr.io/linuxserver/*,index.docker.io/kingdonb/*,index.docker.io/jenkins/*,index.docker.io/library/*,index.docker.io/okteto/*,index.docker.io/weaveworks/*,index.docker.io/grafana/*,index.docker.io/datawire/*,index.docker.io/hephy/*,index.docker.io/fluxcd/*,index.docker.io/prom/*,index.docker.io/buoyantio/*,index.docker.io/kiwigrid/*,index.docker.io/rancher/*,k8s.gcr.io/metrics-server/*,k8s.gcr.io/ingress-nginx/*,k8s.gcr.io/kube-state-metrics/*,k8s.gcr.io/coredns/*,k8s.gcr.io/kube-proxy,quay.io/keycloak/*,quay.io/jetstack/*,quay.io/metallb/*,quay.io/kiwigrid/*,quay.io/prometheus/*,quay.io/prometheus-operator/*,127.0.0.1:5555/*
       rbac:
         create: true
       serviceAccount:
