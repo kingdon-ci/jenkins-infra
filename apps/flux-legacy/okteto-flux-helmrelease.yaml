@@ -24,8 +24,8 @@ spec:
   values:
     flux:
       image:
-        repository: docker.io/kingdonb/flux
-        tag: suppress-deprecation-warnings-8f45be5d
+        repository: docker.io/fluxcd/flux-prerelease
+        tag: master-5c6a9644
       git:
         branch: own-branch
         url: ssh://git@github.com/kingdonb/flux-getting-started.git
