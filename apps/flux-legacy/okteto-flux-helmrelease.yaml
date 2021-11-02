@@ -21,15 +21,39 @@ spec:
         kind: HelmRepository
         name: okteto-apps
   interval: 40m0s
+  postRenderers:
+  - kustomize:
+      patchesStrategicMerge:
+        - kind: Deployment
+          apiVersion: apps/v1
+          metadata:
+            name: flux
+            namespace: flux
+            annotations:
+              fluxcd.io/automated: "false"
+              fluxcd.io/tag.flux: regex:^master-5c6a9644$
+              fluxcd.io/tag.flux-recv: semver:0.6.0
+        - kind: Deployment
+          apiVersion: apps/v1
+          metadata:
+            name: flux-memcached
+            namespace: flux
+            annotations:
+              fluxcd.io/automated: "false"
+              fluxcd.io/tag.memcached: regex:^1.6.10-alpine$
+        - kind: Deployment
+          apiVersion: apps/v1
+          metadata:
+            name: flux-helm-operator
+            namespace: flux
+            annotations:
+              fluxcd.io/automated: "false"
+              fluxcd.io/tag.flux-helm-operator: semver:1.4.0
   values:
     flux:
       image:
         repository: docker.io/fluxcd/flux-prerelease
         tag: master-5c6a9644
-      memcached:
-        annotations:
-          fluxcd.io/automated: "true"
-          fluxcd.io/tag.memcached: regex:^1.6.10-alpine$
       git:
         branch: own-branch
         url: ssh://git@github.com/kingdonb/flux-getting-started.git
@@ -41,9 +65,6 @@ spec:
         create: true
     secret: df10802a8a2bd4ddacf0323838f495810ce61748
     helm-operator:
-      annotations:
-        fluxcd.io/automated: "true"
-        fluxcd.io/tag.podinfod: semver:1.4.0
       rbac:
         create: true
       serviceAccount:
