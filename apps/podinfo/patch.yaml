@@ -8,3 +8,5 @@ spec:
       containers:
         - name: podinfod
           image: docker.io/kingdonb/podinfo:master-79a02744-1635361353 # {"$imagepolicy": "flux-system:podinfo-dev"}
+      imagePullSecrets:
+        - name: regcred
