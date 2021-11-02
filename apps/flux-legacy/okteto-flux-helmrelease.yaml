@@ -31,7 +31,7 @@ spec:
             namespace: flux
             annotations:
               fluxcd.io/automated: "false"
-              fluxcd.io/tag.flux: regex:^master-5c6a9644$
+              fluxcd.io/tag.flux: semver:1.24.2
               fluxcd.io/tag.flux-recv: semver:0.6.0
         - kind: Deployment
           apiVersion: apps/v1
@@ -52,8 +52,8 @@ spec:
   values:
     flux:
       image:
-        repository: docker.io/fluxcd/flux-prerelease
-        tag: master-5c6a9644
+        repository: docker.io/fluxcd/flux
+        tag: 1.24.2
       git:
         branch: own-branch
         url: ssh://git@github.com/kingdonb/flux-getting-started.git
