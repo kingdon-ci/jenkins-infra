@@ -58,7 +58,7 @@ spec:
         branch: own-branch
         url: ssh://git@github.com/kingdonb/flux-getting-started.git
       registry:
-        excludeImage: index.docker.io/jenkins/*,index.docker.io/library/*,index.docker.io/okteto/*,docker.io/weaveworks/*,docker.io/jenkins/*,docker.io/library/*,docker.io/okteto/*,index.docker.io/weaveworks/*
+        excludeImage: index.docker.io/jenkins/*,index.docker.io/library/*,index.docker.io/okteto/*,docker.io/weaveworks/*,docker.io/jenkins/*,docker.io/library/*,docker.io/okteto/*,index.docker.io/weaveworks/*,index.docker.io/grafana/*
       rbac:
         create: true
       serviceAccount:
