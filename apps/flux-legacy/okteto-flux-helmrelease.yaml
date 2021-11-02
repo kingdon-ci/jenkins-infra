@@ -23,6 +23,8 @@ spec:
   interval: 40m0s
   postRenderers:
   - kustomize:
+      # these patches do nothing, because the annotations belong in git
+      # (not this git, Flux v1's git...)
       patchesStrategicMerge:
         - kind: Deployment
           apiVersion: apps/v1
@@ -51,9 +53,9 @@ spec:
               fluxcd.io/tag.flux-helm-operator: semver:1.4.0
   values:
     flux:
-      image:
-        repository: docker.io/fluxcd/flux
-        tag: 1.24.2
+      #image:
+      #  repository: docker.io/fluxcd/flux
+      #  tag: 1.24.2
       git:
         branch: own-branch
         url: ssh://git@github.com/kingdonb/flux-getting-started.git
