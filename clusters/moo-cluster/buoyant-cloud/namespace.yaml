@@ -1,0 +1,14 @@
+---
+#
+# Buoyant Cloud Agent manifest for moo-cluster
+#
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: buoyant-cloud
+  annotations:
+    linkerd.io/inject: enabled
+  labels:
+    app.kubernetes.io/part-of: buoyant-cloud
+    linkerd.io/extension: buoyant

@@ -1,0 +1,15 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: buoyant-cloud
+  namespace: flux-system
+spec:
+  interval: 90m
+  retryInterval: 10m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./infrastructure/buoyant-cloud
+  prune: true
+  wait: true
