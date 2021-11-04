@@ -3,7 +3,8 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-patchesStrategicMerge: []
+patchesStrategicMerge: # []
+- gotk-patches.yaml
 #patches:
 #  - target:
 #      version: v1
@@ -15,7 +16,6 @@ patchesStrategicMerge: []
 #      - op: add
 #        path: /spec/template/spec/containers/0/args/-
 #        value: --aws-autologin-for-ecr
-#- gotk-patches.yaml
 images: []
 #- name: ghcr.io/fluxcd/source-controller
 #  newName: docker.io/kingdonb/source-controller

@@ -9,14 +9,32 @@
 #    provider: sops
 #    secretRef:
 #      name: sops-gpg
----
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: GitRepository
+#---
+#apiVersion: source.toolkit.fluxcd.io/v1beta1
+#kind: GitRepository
+#metadata:
+#  name: flux-system
+#  namespace: flux-system
+#spec:
+#  verify:
+#    mode: head
+#    secretRef:
+#      name: pgp-public-keys
+#---
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: flux-system
+  name: source-controller
   namespace: flux-system
 spec:
-  verify:
-    mode: head
-    secretRef:
-      name: pgp-public-keys
+  template:
+    spec:
+      containers:
+      - name: manager
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 2Gi
+          requests:
+            cpu: 50m
+            memory: 1Gi
