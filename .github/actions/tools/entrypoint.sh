@@ -25,4 +25,5 @@ tar xz
 chmod +x $GITHUB_WORKSPACE/bin/kubeval
 
 echo "$GITHUB_WORKSPACE/bin" >> $GITHUB_PATH
-echo "$GITHUB_WORKSPACE/$(basename $GITHUB_REPOSITORY)/bin" >> $GITHUB_PATH
+# comment out thing I don't understand
+# echo "$GITHUB_WORKSPACE/$(basename $GITHUB_REPOSITORY)/bin" >> $GITHUB_PATH
