@@ -1,22 +1,18 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: deis
   namespace: flux-system
 spec:
-  interval: 1m0s
-  retryInterval: 10m
+  interval: 60m0s
+  retryInterval: 6m0s
+  timeout: 4m0s
   suspend: false
   path: ./apps/hephy
   prune: true
+  wait: true
   sourceRef:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: my-secrets
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: deis-controller
-      namespace: deis
-  timeout: 3m0s
+    - name: certificates
