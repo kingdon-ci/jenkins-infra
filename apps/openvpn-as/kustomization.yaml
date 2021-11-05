@@ -4,3 +4,4 @@ resources:
 - helmrepo.yaml
 - helmrelease.yaml
 - kingdonb-helm-charts-1-gitrepo.yaml
+- openvpn-openvpn-as-lb-udp.yaml
