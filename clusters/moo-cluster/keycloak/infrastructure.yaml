@@ -4,21 +4,16 @@ metadata:
   name: keycloak
   namespace: flux-system
 spec:
-  interval: 73m
-  retryInterval: 10m
+  interval: 73m0s
+  retryInterval: 6m0s
+  timeout: 4m0s
   sourceRef:
     kind: GitRepository
     name: flux-system
   path: ./infrastructure/keycloak
   dependsOn:
     - name: my-secrets
+    - name: certificates
     - name: ingress-nginx
-  prune: false
+  prune: true
   wait: true
-  validation: client
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: keycloak
-      namespace: keycloak
-  timeout: 4m0s
