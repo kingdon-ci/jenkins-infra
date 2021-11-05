@@ -28,9 +28,8 @@ spec:
         name: public
         default: false
         controllerValue: "k8s.io/ingress-nginx-public"
+      podAnnotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "10254"
       metrics:
         enabled: true
-        service:
-          annotations:
-            prometheus.io/scrape: "true"
-            prometheus.io/port: "10254"
