@@ -10,7 +10,7 @@ spec:
  #suspend: true
   path: ./apps/openvpn-as
   prune: false
- #wait: true
+  wait: true
   sourceRef:
     kind: GitRepository
     name: flux-system
