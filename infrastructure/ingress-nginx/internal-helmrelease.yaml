@@ -26,8 +26,5 @@ spec:
         name: internal
         default: true
         controllerValue: "k8s.io/ingress-nginx-internal"
-      podAnnotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "10254"
       metrics:
         enabled: true
