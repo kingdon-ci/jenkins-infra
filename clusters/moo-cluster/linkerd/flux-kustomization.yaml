@@ -1,17 +1,18 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: linkerd-infra
   namespace: flux-system
 spec:
-  interval: 1m
-  retryInterval: 10m
-  suspend: false
+  interval: 10m0s
+  retryInterval: 5m0s
+  timeout: 2m0s
   path: ./infrastructure/linkerd
+  suspend: false
   prune: true
+  wait: true
   sourceRef:
     kind: GitRepository
     name: flux-system
-  timeout: 2m0s
   dependsOn:
     - name: openvpn

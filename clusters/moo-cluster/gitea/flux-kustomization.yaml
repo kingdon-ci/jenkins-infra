@@ -1,14 +1,16 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: gitea
   namespace: flux-system
 spec:
-  interval: 1m
-  retryInterval: 10m
+  interval: 10m0s
+  retryInterval: 5m0s
+  timeout: 2m0s
   suspend: false
-  path: ./apps/gitea
   prune: true
+  wait: true
+  path: ./apps/gitea
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -17,4 +19,3 @@ spec:
       kind: StatefulSet
       name: gitea
       namespace: gitea
-  timeout: 2m0s

@@ -4,20 +4,23 @@ metadata:
   name: openvpn
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 15m0s
   retryInterval: 10m
+  timeout: 12m0s
  #suspend: true
   path: ./apps/openvpn-as
   prune: false
+  wait: true
   sourceRef:
     kind: GitRepository
     name: flux-system
   dependsOn:
     - name: ingress-nginx
     - name: persistence
+    - name: certificates
+    - name: my-secrets
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
       name: openvpn-openvpn-as
       namespace: openvpn
-  timeout: 12m0s
