@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ambassador-tls/blog.deis.hephy.pro-tls.yaml
+- ambassador-tls/blog.teamhephy.info-tls.yaml
+- ambassador-tls/booksapp.hephy.pro-tls.yaml
+- ambassador-tls/dashboard.hephy.pro-tls.yaml
+- ambassador-tls/deis.deis.hephy.pro-tls.yaml
+- ambassador-tls/emojivoto.hephy.pro-tls.yaml
+- ambassador-tls/ob-2dmirror.deis.hephy.pro-tls.yaml
+- ambassador-tls/podinfo-dev.hephy.pro-tls.yaml
+- ambassador-tls/podinfo.hephy.pro-tls.yaml
+- ambassador-tls/simplest-2dcommitbee.deis.hephy.pro-tls.yaml
+- gitno-hephy-pro-tls.yaml
+- jenkins-hephy-pro-tls.yaml
+- jenkins-hooks-hephy-pro-tls.yaml
+- keycloak-hephy-pro-tls.yaml
+- oidc-proxy-tls.yaml
+- vpn-admin-hephy-pro-tls.yaml
+#- vpn-hephy-pro-tls.yaml
