@@ -7,5 +7,5 @@ metadata:
 spec:
   interval: 30m0s
   ref:
-    branch: main
-  url: https://github.com/fluxcd/flux2
+    branch: monitoring
+  url: https://github.com/kingdonb/flux2
