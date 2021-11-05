@@ -52,7 +52,7 @@ spec:
         hostName: jenkins.hephy.pro
         ingressClassName: internal
         annotations:
-        #cert-manager.io/cluster-issuer: letsencrypt-production
+          cert-manager.io/cluster-issuer: letsencrypt-production
         #kubernetes.io/ingress.class: internal
         tls:
           - secretName: jenkins.hephy.pro
