@@ -56,6 +56,9 @@ spec:
     valuesKey: password
     targetPath: openvpn.users[0].password
   values:
+    image:
+      repository: docker.io/kingdonb/openvpn-as
+      tag: 2021.11.07
     openvpn:
       config:
         vpn.client.routing.reroute_gw: "true"
