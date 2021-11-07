@@ -58,7 +58,7 @@ spec:
   values:
     image:
       repository: docker.io/kingdonb/openvpn-as
-      tag: 2021.11.07
+      tag: 2021.11.08
     openvpn:
       config:
         vpn.client.routing.reroute_gw: "true"
