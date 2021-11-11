@@ -8,7 +8,7 @@ spec:
   timeout: 30s
   path: ./apps/traefik
   prune: false
-  wait: true
+  wait: false
   sourceRef:
     kind: GitRepository
     name: flux-system
