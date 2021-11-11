@@ -15,7 +15,7 @@ spec:
   timeout: 2m30s
   values:
     deployment:
-      replicas: 2
+      replicas: 1
     ports:
       traefik:
         healthchecksPort: 6666
