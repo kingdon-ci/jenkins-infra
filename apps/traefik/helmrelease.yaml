@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: my-traefik
+  namespace: traefik
+spec:
+  chart:
+    spec:
+      chart: traefik
+      sourceRef:
+        kind: HelmRepository
+        name: traefik
+      version: 10.6.1
+  interval: 5m0s
+  timeout: 2m30s
+  values:
+    deployment:
+      replicas: 2
+    ports:
+      traefik:
+        healthchecksPort: 6666

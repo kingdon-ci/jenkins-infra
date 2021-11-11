@@ -19,5 +19,6 @@ resources:
 - openvpn-as
 - podinfo
 - podinfo-magic
+- traefik
 - flux-legacy
 - secret-generator-test
