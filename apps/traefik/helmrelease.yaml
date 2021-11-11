@@ -16,6 +16,3 @@ spec:
   values:
     deployment:
       replicas: 1
-    ports:
-      traefik:
-        healthchecksPort: 6666
